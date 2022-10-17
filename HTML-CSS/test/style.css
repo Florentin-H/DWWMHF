@@ -1,0 +1,38 @@
+h1
+{
+    text-align: center;
+    padding: 10%;
+    color: #5a8dff;
+    font-size:50px ;
+    font-family: 'Roboto', sans-serif;
+    font-weight: ;
+    letter-spacing: 5px;
+    line-height: ;
+    /*commentaire*/
+}
+
+body
+{
+    color: white;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,79,87,1) 100%, rgba(0,212,255,1) 100%);
+    text-align: center;
+    
+}
+
+a
+{
+    color: #5a8dff;
+}
+
+ul  {
+    padding-left:0;   
+   }
+   ul li  {
+    list-style-position:inside
+   }
+
+table
+{
+    margin: auto;
+}
+
