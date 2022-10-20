@@ -1,0 +1,131 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  
+}
+
+body {
+  font-family: Raleway, sans-serif;
+  height: 100vh;
+  background: #222;
+  
+}
+
+.info-section {
+  color: #f1f1f1;
+  text-align: center;
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  
+}
+.section-flex {
+  padding-bottom: 400px;
+  
+}
+
+/* Exemples flex */
+
+.container-flex  {
+  width: 800px;
+  height: 500px;
+  margin: 150px auto;
+  background: #ffcb9a;
+  display: flex;
+  
+}
+
+.item-flex {  
+  background: crimson;
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+}
+
+
+/* Exemple #1 */
+.a2 {
+  flex: 2;
+}
+
+
+
+
+
+/* Exemple #2 */
+.containerB{
+  flex-wrap:wrap;
+  flex-direction: row;
+   justify-content: center; /*axe principal qunad c'est justify */
+  align-content: center; /*axe secondaire qunad c'est align */
+}
+
+.b1{
+  flex-basis: 48%;
+}
+
+.b2{
+  flex-basis: 48%;
+  
+}
+
+.b3{
+  flex-basis: 97%;
+  
+  
+}
+
+.b4{
+  flex-basis: 48%;
+  
+}
+
+.b5{
+  flex-basis: 48%;
+  
+}
+
+
+/* Exemple #3 */
+
+.containerC {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.c1,.c2,.c3,.c4,.c5,.c6
+{
+  /* align-self: center; */
+  width: 50%;
+  height: 60px;
+  
+}
+
+
+
+
+
+/* Exemple #4 */
+.containerD {
+  height: 460px;
+  width: 600px;
+  justify-content: space-between;
+}
+.containerD .item-flex {
+  width: 150px;
+  height: 150px;
+}
+
+.d2{
+  align-self: center;
+}
+
+.d3{
+  align-self: flex-end;
+}
+

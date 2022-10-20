@@ -1,0 +1,130 @@
+body
+{
+    background-color: white;
+    height: 30vw;
+    padding:12%
+    
+}
+
+
+div.container1
+{
+    
+    background-color: blue;
+    display: flex;
+    padding: 5%;
+    flex-wrap: wrap;
+    
+    
+    
+
+}
+article{
+    padding:5px;
+    margin: 1%;
+    
+}
+
+.item1
+{
+    
+    background-color: orange;
+    flex-basis:85%;
+    flex-grow: 2;
+    padding-top: 10%;
+    
+}
+
+.item2
+{
+    background-color: grey;
+    flex-basis: 15%;
+    flex-grow: 1;
+    padding-bottom: 40%;
+    
+    
+    
+}
+
+.item3
+{
+    background-color: yellow;
+    flex-basis: 30%;
+    flex-grow: 3;
+    
+
+}
+
+.item4
+{
+    background-color: green;
+    flex-basis:80%;
+    flex-grow: 2;
+    padding-top: 10%;
+}
+
+div.container2
+{
+    margin-top: 5%;
+    background-color: blue;
+    display: flex;
+    padding: 5%;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.item_a
+{
+    background-color: orange;
+    flex-basis: 50%;
+    padding-top: 5%;
+}
+
+.item_b
+{
+    background-color: grey;
+    flex-basis: 1%;
+    flex-grow: 1;
+    padding-bottom: 40%;
+    
+    
+    
+}
+
+.item_c
+{
+    background-color: yellow;
+    flex-basis: 10%;
+    flex-grow: 10;
+    
+
+}
+
+.item_d
+{
+    background-color: rgb(58, 82, 92);
+    flex-basis:80%;
+    flex-grow: 2;
+    padding-top: 10%;
+}
+
+.item_e
+{
+    background-color: rgb(136, 199, 136);
+    flex-basis:80%;
+    flex-grow: 2;
+    padding-top: 10%;
+}
+
+.item_f
+{
+    background-color: green;
+    flex-basis:80%;
+    flex-grow: 2;
+    padding-top: 10%;
+}
+
+
+
+
+
