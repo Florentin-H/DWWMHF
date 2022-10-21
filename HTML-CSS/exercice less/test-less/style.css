@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container1 {
+  background-color: yellow;
+}
+.container1 h2 {
+  font-size: 35px;
+}
+.container2 h2 {
+  font-size: 80px;
+}
+.container2 p {
+  font-size: 25px;
+  color: blue;
+}
+.container2 p:nth-of-type(3) {
+  color: red;
+}
+.container2 p:nth-of-type(3) span {
+  color: black;
+}
