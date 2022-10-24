@@ -1,0 +1,371 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #efe784;
+  font-family: "Roboto", sans-serif;
+  height: 100%;
+  
+}
+
+main {
+  width: 50vw;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #3e3838;
+  height: 20vw;
+}
+
+section {
+  padding-bottom: 5%;
+  padding-top: 5%;
+}
+
+div.Top {
+  position: relative;
+  left: 168px;
+  right: 168px;
+  margin-right: 30%;
+}
+
+div.bottom {
+  position: relative;
+  left: 168px;
+}
+
+section.intro {
+  background-color: #3e3838;
+
+  position: relative;
+  height: 100%;
+  padding-bottom: 1px;
+  text-align: center;
+}
+
+section.intro p {
+  margin-left: 20%;
+  margin-right: 20%;
+  color: #efe784;
+  
+  /* padding-top: 1%; */
+}
+
+.lac {
+  background-image: url(./images/header_recadre.png);
+  height: 100%;
+  background-repeat: no-repeat;
+  
+}
+
+.img {
+  background-image: url(./images/logoheader_recadre.png);
+  height:100%;
+  width: 63%;  
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 3vw;
+  left: 40vw;
+}
+
+.Bienvenue {
+  text-transform: uppercase;
+  color: #efe784;
+  position: absolute;
+  font-size: 23px;
+  top: 10vw;
+  left: 42.5%;
+  letter-spacing: 20px;
+}
+
+h1 {
+  position: relative;
+  font-size: 22px;
+  border-bottom: solid 1px;
+  border-top: solid 1px;
+  border-color: #efe784;
+  color: #efe784;
+  text-transform: uppercase;
+  display: inline;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  letter-spacing: 12px;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+h2.woman {
+  color: white;
+}
+
+section.Avengers {
+  background-color: white;
+  color: #6ebbb1;
+}
+div.img_avengers {
+  background-image: url(./images/avengers_recadre.png);
+  height:220px;
+  width: 550px;
+  left: 0vw;
+  background-repeat: no-repeat;
+  position: relative;
+}
+section.Star {
+  background-color: #6cbcb3;
+}
+div.img_star {
+  background-image: url(./images/film_recadre.png);
+  height:220px;
+  width: 550px;
+  left: 0vw;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+
+section.Woman {
+  background-color: #3e3838;
+  color: white;
+}
+div.img_woman {
+  background-image: url(./images/woman_recadre.png);
+  height:220px;
+  width: 550px;
+  left: 0vw;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+footer {
+  height: 198px;
+  background-color: black;
+}
+
+img.footer {
+  position: relative;
+  top: 30%;
+  left: 10%;
+}
+
+p.footer {
+  color: white;
+  position: relative;
+  top: 40%;
+  left: 10%;
+}
+
+p.description {
+  font-size: 11px;
+  line-height: 90%;
+  color: white;
+}
+
+p.description_v {
+  font-size: 11px;
+  line-height: 90%;
+}
+
+p {
+  line-height: 200%;
+  padding-top: 20px;
+}
+
+/* ------------- Responsive------------- */
+@media screen and (max-width:748px){
+  body {
+    width:100% ;
+   
+
+  }
+
+  header {
+    height: 30vw;
+    width: 100%;
+  }
+
+  .intro {
+    height: 100%;
+  }
+
+  main {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  .lac {
+    width: 100%;
+  }
+
+  .img {
+    background-image: url(./images/logoheader_tablette.png);
+    height: 95px;
+    width: 200px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0%;
+    left: 39%;
+  }
+  
+  .Bienvenue {
+    text-transform: uppercase;
+    color: #efe784;
+    position: absolute;
+    font-size: 10px;
+    top: 15%;
+    left: 40%;
+    letter-spacing: 15px;
+  }
+  div.Top {
+    position: relative;
+    left: 10%;
+    right: 168px;
+    margin-right: 30%;
+  }
+  div.bottom {
+    position: relative;
+    left: 10%;
+    width: 250px;
+  }
+  
+  div.img_avengers {
+    background-image: url(./images/avengers_tablette.png);
+    height:220px;
+    width: 550px;
+    left: 3%;
+    background-repeat: no-repeat;
+    position: relative;
+   
+  }
+
+  div.img_star {
+    background-image: url(./images/film_tablette.png);
+    height:220px;
+    width: 550px;
+    left: 3%;
+    background-repeat: no-repeat;
+    position: relative;
+   
+  }
+
+  div.img_woman {
+    background-image: url(./images/woman_tablette.png);
+    height:180px;
+    width: 450px;
+    left: 3%;
+    background-repeat: no-repeat;
+    position: relative;
+   
+  }
+
+
+  }
+
+
+@media screen and (max-width:360px){
+  
+  body {
+    width:100% ;
+   
+
+  }
+
+  header {
+    height: 30vw;
+    width: 100%;
+  }
+
+  .intro {
+    height: 100%;
+  }
+
+  main {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  p {
+    line-height: 150%;
+    text-align: left;
+  }
+
+  .lac {
+    background-image: url(./images/header_phone.png);
+    height: 100%;
+    background-repeat: no-repeat;
+    
+  }
+
+  .img {
+    background-image: url(./images/logoheader_phone.png);
+    height: 95px;
+    width: 200px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1%;
+    left: 31%;
+  }
+  
+  .Bienvenue {
+    text-transform: uppercase;
+    color: #efe784;
+    position: absolute;
+    font-size: 10px;
+    top: 7%;
+    left: 30%;
+    letter-spacing: 10px;
+  }
+  div.Top {
+    position: relative;
+    left: 10%;
+    right: 168px;
+    margin-right: 30%;
+  }
+  div.bottom {
+    position: relative;
+    left: 10%;
+    width: 250px;
+  }
+  
+  div.img_avengers {
+    background-image: url(./images/avengers_phone.png);
+    height:120px;
+    width: 240px;
+    left: 3%;
+    background-repeat: no-repeat;
+    position: relative;
+   
+  }
+
+  div.img_star {
+    background-image: url(./images/film_phone.png);
+    height:220px;
+    width: 240px;
+    left: 0%;
+    background-repeat: no-repeat;
+    position: relative;
+   
+  }
+
+  div.img_woman {
+    background-image: url(./images/woman_phone.png);
+    height:140px;
+    width: 240px;
+    left: 0%;
+    background-repeat: no-repeat;
+    position: relative;
+   
+  }
+
+
+  }
+
+
