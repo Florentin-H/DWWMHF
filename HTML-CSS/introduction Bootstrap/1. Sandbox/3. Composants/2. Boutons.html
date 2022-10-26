@@ -76,7 +76,7 @@
 
         <button class="btn btn-lg btn-outline-danger">Bouton large</button>
         <button class="btn btn-secondary btn-sm">Petit Bouton</button>
-        <button class="btn btn-secondary btn-lg" disabled>Bouton désactivé</button>
+        <button class="btn btn-secondary btn-lg disabled" >Bouton désactivé</button>
 
      
 
@@ -89,7 +89,7 @@
         <!-- [badge] Le tout dans un bouton -->
 
         <button class="btn btn-primary">
-            Notifications <span class="">4</span>
+            Notifications <span class="badge">4</span>
         </button>
 
         
@@ -98,7 +98,7 @@
 
         <button class="btn btn-primary position-relative">
             Inbox
-            <span class="position-absolute top-0 start-100 translate-middle  bg-danger">
+            <span class="position-absolute top-0 start-100 translate-middle  bg-danger badge rounded-pill">
               99+
               <span class="visually-hidden">unread messages</span>
             </span>
@@ -108,12 +108,12 @@
           
         <!-- [badge] Tout court pour petits badges -->
   
-        <span class=" bg-primary">Primary</span>
-        <span class="badge bg-secondary">Secondary</span>
+        <span class=" badge bg-primary">Primary</span>
+        <span class="badge badge bg-secondary">Secondary</span>
 
         <!-- [badge + rounded-pill] Pour des badges pilules -->
 
-        <span class="  bg-primary">Primary</span>
+        <span class="  badge rounded-pill bg-primary">Primary</span>
         <span class="badge rounded-pill bg-secondary">Secondary</span>
  
 
@@ -122,7 +122,7 @@
           
         <!-- [btn-close] -->
 
-        <button class=" bg-danger p-3"></button>
+        <button class="btn-close bg-danger p-3"></button>
 
 
 
@@ -131,7 +131,7 @@
         <!-- [btn-group] Sur le parent qui contient des boutons -->
         <!-- On peut rajouter la classe [active] à un bouton -->
 
-        <div class="">
+        <div class="btn-group">
             <button class="btn btn-primary">gauche</button>
             <button class="btn btn-primary">milieu</button>
             <button class="btn btn-primary">droite</button>
