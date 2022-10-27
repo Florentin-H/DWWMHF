@@ -1,0 +1,17 @@
+html/css
+
+internet autorisé mais pas le droit de communiquer avec discord
+
+le code doit être propre, indenté et COMMENTé, les fichiers seront sauvegardés dans un dossier "ECF-HTML-Nom-Prénom"
+on met index.html
+style.css
+répertoire image
+et un répertoire maquette --> maquette figma dedans soit en Jpeg soit en png
+
+le sujet = réaliser une petite application, une to do list.
+
+maqueter puis exporter en jpeg ou png
+
+puis faire l'intégration web en html csss less n'est pas obligatoire
+
+3 boutons (ajouter-modifier-supprimer)
