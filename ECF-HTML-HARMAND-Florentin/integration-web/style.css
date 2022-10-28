@@ -13,7 +13,6 @@ body {
   padding-bottom: 10%;
 }
 
-
 /* on met la police roboto dans le main en sans serif
 avec des bords un peu arrondi. on centre le tout au milieu pour laisser la même quantité de bleu à gauche et à droite
 on laisse le main prendre 50% de l'écran et on lui donne un bg blanc fumé */
@@ -22,66 +21,56 @@ main {
   border-radius: 10px;
   margin: 0 auto;
   width: 50%;
-  
+
   background-color: whitesmoke;
 }
 
 /* le titre h1 a une position relative décalé de 10% vers la droite et on  lui laisse de l'espace en poussant de
 3% vers le bas */
 h1 {
-    position: relative;
-    left: 10%;
-    padding-bottom: 3%;
+  position: relative;
+  left: 10%;
+  padding-bottom: 3%;
 }
 
 /* le contenair principal est en display flex avec une direction en colonne et on centre l'axe principal au milieu */
 .containerDePasseAction-effaceTout {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-/* on donne une hauteur et longueur de 100% à la barre de recherche */
-.search {
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* on affiche le top en flex */
-.top{
-    display: flex;
+.top {
+  display: flex;
 }
-
 
 .PasseAction {
-    display: flex;
-    flex-direction: row;
-    height: 50px;
-    padding-left: 10%;
-    padding-right: 10%;
-    
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
+/* on donne une hauteur et longueur de 100% à la barre de recherche */
 .search {
-    background-color: #979CAD;
-    border: solid 1px;
-    border-radius: 15px;
-    color: rgb(252, 252, 252);
-    font-size: 30px;
-    
-    
+  width: 100%;
+  border-radius: 15px;
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  padding: 3%;
 }
 
 /* le bouton go s'affiche en bleu avec une écriture blanche, avec un padding de 0%en haut et en bas et 5% à gauche et à droite
 une police de 20px, un arrondi du bouton de 10px */
 .go {
-    padding: 0 5%;
-    margin-left: 5%;
-    background-color: #354783;
-    color: white;
-    font-size: 20px;
-    border-radius: 10px;
+  padding: 0 5%;
+  margin-left: 5%;
+  background-color: #354783;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
 /* container central doit s'afficher en colonne pour que chaque chose à faire se mettent l'une sous l'autre
@@ -90,106 +79,94 @@ avec un padding de 5% en haut et en bas pour laisser respirer la bar d'ajout et 
   display: flex;
   flex-direction: column;
   padding: 5% 0%;
-  
 }
 
 /* l'article permet de mettre un background grisé et d'arrondir ce bord avec border radius et 1% de padding pour pas que ce soit collé */
 article {
-    background-color: rgb(214, 212, 212);
-    border-radius: 5px;
-    padding: 1%;
-    
-    
+  background-color: rgb(214, 212, 212);
+  border-radius: 5px;
+  padding: 1%;
 }
 
 /* préciser les caractéristiques du p dans les articles */
 article p {
-    text-align: justify;
-    margin-left: 5%;
-    margin-right: 5%;
+  text-align: justify;
+  margin-left: 5%;
+  margin-right: 5%;
 }
-
 
 .Tache {
   display: flex;
   justify-content: center;
   padding: 1%;
-  
 }
 
 /* positionne le bouton poubelle et lui donne un aspect sans contour */
 .poubelle {
-    height: 2%;
-    
-    margin-top: 2%;
-    margin-right: 3%;
-    border: none;
-    background-color: whitesmoke;
-    
+  height: 2%;
+
+  margin-top: 2%;
+  margin-right: 3%;
+  border: none;
+  background-color: whitesmoke;
 }
 
 .modifier {
-    position:relative;
-    
-    height: 2%;
-    margin-top: 3%;
-    margin-right: 5%;
-    border: none;
-    background-color: whitesmoke;
-    
+  position: relative;
+
+  height: 2%;
+  margin-top: 3%;
+  margin-right: 5%;
+  border: none;
+  background-color: whitesmoke;
 }
 
 /* afficher le bouton  poubelle en gris lorsqu'on passe la souris dessus */
 .poubelle :hover {
-    background-color: rgb(190, 187, 187);
-    opacity: 80%;
-    
+  background-color: rgb(190, 187, 187);
+  opacity: 80%;
 }
 
 .modifier :hover {
-    background-color: rgb(190, 187, 187);
-    opacity: 80%;
-    
+  background-color: rgb(190, 187, 187);
+  opacity: 80%;
 }
 
 /* afficher le bouton  poubelle en rouge lorsqu'on clic dessus */
-.poubelle:active{
-    background-color:#f80a0a;  
-  }
-
-  .modifier:active{
-    background-color:#3af80a; 
-    
-  }
-
-  /* positionne le bouton pour cocher ou décocher une tâche */
-.valide {
-    
-    margin-top: 3.5%;
-    
+.poubelle:active {
+  background-color: #f80a0a;
 }
 
+.modifier:active {
+  background-color: #3af80a;
+}
 
+/* positionne le bouton pour cocher ou décocher une tâche */
+.valide {
+  margin-top: 3.5%;
+}
 
 /* organise le bas de la page */
 .bottom {
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 5%;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 5%;
 }
 
 /* afficher en gras le span */
 span {
-    font-weight: bolder;
+  font-weight: bolder;
 }
-
 
 /* bouton pour tout supprimer fond rouge police blanche padding de 3% et border radius 18 px pour arrondir les bords */
 .delete {
-    background-color: #8A2727;
-    color: white;
-    padding: 3%;
-    border-radius: 18px;
+  background-color: #8a2727;
+  color: white;
+  padding: 3%;
+  border-radius: 18px;
 }
 
-
+input::placeholder {
+  color: rgb(255, 255, 255);
+  background-color: #686868;
+}

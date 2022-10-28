@@ -21,8 +21,10 @@
       <div class="top">
         <h1>To Fait Quoi Today?</h1>
       </div>
-      <div class="containerDePasseAction-effaceTout"> <!--grand container dans le main qui permet d'agencer tout le bloc de la div passe à l'action au bouton efface tout-->
-        <div class="ajoutTache"> <!--permet d'écrire ce que l'on veut mettre dans la TodoList (non fonctionnel au 27/10/2022)-->
+      <div class="containerDePasseAction-effaceTout">
+        <!--grand container dans le main qui permet d'agencer tout le bloc de la div passe à l'action au bouton efface tout-->
+        <div class="ajoutTache">
+          <!--permet d'écrire ce que l'on veut mettre dans la TodoList (non fonctionnel au 27/10/2022)-->
           <form class="PasseAction">
             <input
               type="text"
@@ -35,37 +37,36 @@
         </div>
 
         <section class="corps">
-            <div id="1" class="Tache">
-                <!-- button classe poubelle est le bouton permettant de supprimer une tâche manuellement -->
-                <button class="poubelle" type="submit">
-                  <img
-                    src="/images/poubelle.png"
-                    alt="Poubelle de suppression de tâche"
-                  />
-                </button>
-    
-                <!-- l'article permet d'afficher le fond gris en arrière plan derrière les taches -->
-                <article>
-                  <p> <!--lieu où s'écrivent les actions-->
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                    et corporis earum blanditiis
-                  </p>
-                </article>
-    
-                <button class="modifier" type="submit"> <!--bouton permettant de modifier la tache (non fonctionnel en date du 27/10/2022)-->
-                    <img
-                      src="/images/modifier.png"
-                      alt="modifier la chose à faire"
-                    />
-                  </button>
-    
-                <form class="valide"> <!--permet de valider ou non la tache-->
-                  <div>
-                    <input type="checkbox" value="Valide" />
-                  </div>
-                </form>
+          <div id="1" class="Tache">
+            <!-- button classe poubelle est le bouton permettant de supprimer une tâche manuellement -->
+            <button class="poubelle" type="submit">
+              <img
+                src="/images/poubelle.png"
+                alt="Poubelle de suppression de tâche"
+              />
+            </button>
+
+            <!-- l'article permet d'afficher le fond gris en arrière plan derrière les taches -->
+            <article>
+              <p>
+                <!--lieu où s'écrivent les actions-->
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+                et corporis earum blanditiis
+              </p>
+            </article>
+
+            <button class="modifier" type="submit">
+              <!--bouton permettant de modifier la tache (non fonctionnel en date du 27/10/2022)-->
+              <img src="/images/modifier.png" alt="modifier la chose à faire" />
+            </button>
+
+            <form class="valide">
+              <!--permet de valider ou non la tache-->
+              <div>
+                <input type="checkbox" value="Valide" />
               </div>
-              
+            </form>
+          </div>
 
           <div id="2" class="Tache">
             <!-- button classe poubelle est le bouton permettant de supprimer une tâche manuellement -->
@@ -84,11 +85,11 @@
               </p>
             </article>
             <button class="modifier" type="submit">
-                <img
-                  src="/images/modifier.png"
-                  alt="Poubelle de suppression de tâche"
-                />
-              </button>
+              <img
+                src="/images/modifier.png"
+                alt="Poubelle de suppression de tâche"
+              />
+            </button>
 
             <form class="valide">
               <div>
@@ -96,7 +97,6 @@
               </div>
             </form>
           </div>
-          
 
           <div id="3" class="Tache">
             <!-- button classe poubelle est le bouton permettant de supprimer une tâche manuellement -->
@@ -116,11 +116,11 @@
             </article>
 
             <button class="modifier" type="submit">
-                <img
-                  src="/images/modifier.png"
-                  alt="Poubelle de suppression de tâche"
-                />
-              </button>
+              <img
+                src="/images/modifier.png"
+                alt="Poubelle de suppression de tâche"
+              />
+            </button>
 
             <form class="valide">
               <div>
@@ -146,11 +146,11 @@
               </p>
             </article>
             <button class="modifier" type="submit">
-                <img
-                  src="/images/modifier.png"
-                  alt="Poubelle de suppression de tâche"
-                />
-              </button>
+              <img
+                src="/images/modifier.png"
+                alt="Poubelle de suppression de tâche"
+              />
+            </button>
 
             <form class="valide">
               <div>
@@ -160,8 +160,10 @@
           </div>
         </section>
 
-        <div class="bottom"> <!--permet de gérer le bas de page, à gauche le nombre de tache encore à valider à droite le bouton rouge efface tout-->
-          <p>Bouges toi t'as <span> "X" </span> tâches en attente!</p><!--le span permettra d'actualiser le nombre d'action à restante à valider-->
+        <div class="bottom">
+          <!--permet de gérer le bas de page, à gauche le nombre de tache encore à valider à droite le bouton rouge efface tout-->
+          <p>Bouges toi t'as <span> "X" </span> tâches en attente!</p>
+          <!--le span permettra d'actualiser le nombre d'action à restante à valider-->
 
           <input type="button" class="delete" value="Efface tout!" />
         </div>
