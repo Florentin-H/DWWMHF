@@ -1,0 +1,148 @@
+p+h1+h2+h3+li+strong
+{
+    font-family: font-family: 'Times New Roman', Times, serif;;
+}
+
+
+p
+{
+   
+    font-size: 28px;
+    color: rgb(255, 255, 255);
+}
+
+h1
+{
+    color: rgb(255, 255, 255);
+    font-size: 45px;
+    text-align: center;
+}
+
+h2
+{
+    color: rgb(255, 255, 255);
+    
+}
+
+h3
+{
+    color: rgb(255, 255, 255);
+    text-align: left;
+}
+
+li
+{
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    text-align: justify;
+    position: relative;
+    
+    list-style: none;
+}
+
+.info
+{
+
+    color: rgb(250, 250, 250);
+    text-align: center;
+    position: relative;
+    left: 15%;
+    
+    
+    
+
+}
+strong
+{
+    color: rgb(255, 255, 255);
+    font-style: normal;
+    font-display: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+body
+{
+    margin: 0px;
+    background: linear-gradient(to top right, #000000, #9C9C9C);
+    height: 100%;
+    width: 100%;
+}
+
+a[title= "ERSDL"]
+{
+    color: rgb(255, 255, 255)
+}
+
+
+form
+{
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+}
+
+    
+
+
+div.liste_de_cryptos
+{
+    width:100%;
+    text-align: center;
+}
+
+.NavBarre
+{
+    overflow: hidden;
+    background-color:#333 ;
+}
+ul.NavBarre {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li.NavBarre {
+    float: left;
+   
+    
+    
+  }
+  
+  li.NavBarre a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  /* Change the link color to #111 (black) on hover */
+li.NavBarre a:hover {
+    background-color: #111;
+  }
+
+  ul.puces
+  {
+    margin-left: 30%;
+    margin-right: 30%;
+    
+  }
+
+  .Presentation 
+  {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  ul.colonne_tableau
+  {
+    margin-left: 50%;
+  }

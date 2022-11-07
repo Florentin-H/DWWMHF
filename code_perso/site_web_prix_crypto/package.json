@@ -1,0 +1,11 @@
+{
+  "name": "site_web_prix_crypto",
+  "version": "1.0.0",
+  "description": "site web pour les cryptos",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
+}

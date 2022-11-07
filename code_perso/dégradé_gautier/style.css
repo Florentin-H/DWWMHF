@@ -1,0 +1,84 @@
+html
+    {
+        width: 100%;
+        height: 100%;
+        
+    }
+body {
+    background: linear-gradient(to top right, rgb(86,124,143), rgb(192,222,202));
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  
+
+
+h1
+{
+    position: relative;
+    margin-left: 35%;
+    margin-top: 10%;
+    color: white;
+
+}
+
+ul.trio
+{
+    list-style: none;
+    font-size: 25px;
+    margin-left: 34%;
+    margin-top: 1%;
+    margin-right: 20%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px 10px;
+
+}
+
+li.trio
+{
+    position: relative;
+    line-height: 1.1em
+
+}
+
+span.left
+{
+    position: relative;
+    list-style: none;
+    font-size: 15px;
+    margin-left: 0%;
+    
+
+}
+
+span.New
+{
+    font-size: 15px;
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    padding: 4px 8px;
+    text-transform: uppercase;
+    
+    
+}
+
+h3
+{
+    margin-bottom: 10px;
+}
+
+span.date
+{
+    font-size: 15px;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    
+}
+
+a:link
+{
+    text-decoration: none;
+}
