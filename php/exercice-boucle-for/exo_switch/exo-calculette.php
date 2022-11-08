@@ -1,6 +1,6 @@
 <?php
 $nombre1= readline("choisissez le premier nombre");
-$nombre2= readline("choisissez le premier nombre");
+$nombre2= readline("choisissez le deuxième nombre");
 $menu = readline("1 = addition; 2 = soustraction; 3 = multiplication; 4 = division ");
 
 switch($menu){
