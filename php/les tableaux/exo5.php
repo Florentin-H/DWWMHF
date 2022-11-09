@@ -7,13 +7,12 @@ for($i=0; $i<$valeur;$i++){
     $nombre = readline("choisissez un nombre: ");
     $tab[$i] = $nombre;
     
-if ($max< $nombre){
-    $max = $nombre;
-    $index = $i;
-}
+    if ($max< $nombre){
+        $max = $nombre;
+        $index = $i;
+    }
 
 }
 echo "\n" . $index . $max;
-
 
 ?>
