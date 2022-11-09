@@ -1,7 +1,6 @@
 <?php
 $valeur = readline("Combien de valeurs voulez vous? ");
 $sup = 0;
-$index= 0;
 $tab = [];
 for($i=0; $i<$valeur;$i++){
     $note = readline("Quelle note a eu l'élève? : ");

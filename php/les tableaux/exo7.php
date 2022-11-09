@@ -1,5 +1,5 @@
 <?php
-// TABLEAU 1//
+
 $prix= [5,50,23,11];
 $quantite= [10,1,4,3];
 

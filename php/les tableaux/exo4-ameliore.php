@@ -8,7 +8,7 @@ for($i=0;$i<count($valeur1);$i++){
 
 }
 
-for($i=0;$i<count($valeur3);$i++){
-    echo $valeur3[2] . "\n" ;
+for($i=0;$i<1;$i++){
+    echo "\n la troisième valeur du tableau 3 est ".$valeur3[2] . "\n" ;
 }
 ?>
