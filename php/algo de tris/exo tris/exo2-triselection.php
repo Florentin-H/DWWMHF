@@ -1,7 +1,7 @@
 <?php
 $tab = [5,2,3,4,1,9,8];
 
-for ($i=0;$i<count($tab)-1;$i++){
+for ($i=0;$i<=count($tab)-2;$i++){
     $min=$i;
     for($j=$i+1;$j<count($tab);$j++){
         if ($tab[$j]<$tab[$min]){

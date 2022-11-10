@@ -9,7 +9,7 @@
         $saisie = readline("entrez une valeur ou dites 'stop' ");
             if($saisie == "stop"){
                 $stop = true;
-                break;
+                // break;
             }
             else{
                 $tab[$i] = $saisie;
