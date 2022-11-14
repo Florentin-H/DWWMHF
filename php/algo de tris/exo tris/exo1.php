@@ -31,12 +31,12 @@
 
             if ($tab[$i+1] == $tab[$i]+1){
                 echo "le tableau est rangé de manière successive";
-                break;
+                
 
             }
             else{
                 echo "le tableau n'est pas rangé de manière successive";
-                break;
+                
             }
 
     }
