@@ -1,7 +1,7 @@
 <?php
 
 $tableL = 5;
-$tableC = 5;
+$tableC = 10;
 $tab = [];
 
 for ($i = 1 ; $i<=$tableL;$i++){

@@ -2,10 +2,10 @@
 $tabPhrase=[];
 $voyelles = ["a","e","i","o","u","y"];
 $phrase = readline("entrez une phrase : ");
-$tabPhrase = str_split($phrase); // Split ton mot en tableau  
+$tabPhrase = str_split($phrase); // Split le mot en tableau  
 
-// en gros [$phrase] va faire un tableau d'une entrée avec tout ton mot
-// str_split($phrase) va faire un tableau, avec une entrée par lettre (pour te permettre d'itérer sur chaque lettre avec le for) 
+// en gros $phrase va faire un tableau d'une entrée avec tout le mot
+// str_split($phrase) va faire un tableau, avec une entrée par lettre  
 $compteVoyelles = 0;
 
 //je parcours le tableau tabPhrase et Voyelles pour compter le nombre de voyelles

@@ -1,6 +1,6 @@
 <?php
-$ligne = 2;
-$colonne = 5;
+$ligne = 10;
+$colonne = 10;
 $tab=[];
 $max = 0;
 $indexL = 0;
@@ -11,7 +11,7 @@ $recherche =0;
 //crée le tableau aléatoire
 for($i=0; $i<$ligne;$i++){
     for($j=0; $j<$colonne;$j++){
-        $tab[$i][$j] = rand(0,1000);
+        $tab[$i][$j] = rand(20,45);
         echo $tab[$i][$j] . "|" ;
 
     }

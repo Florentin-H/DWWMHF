@@ -12,6 +12,5 @@ for($i=1 ; $i<=$nombre; $i++){
     }
     echo "\n";
 }
-// lance ;) faut pas mettre un if?
- // relance pour voir ?
+
 ?>

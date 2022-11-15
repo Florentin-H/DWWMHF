@@ -3,6 +3,8 @@
 $pointsJoueur = 0;
 $pointsOrdinateur = 0;
 
+
+$pseudo = readline("Entre ton pseudo pour avoir la chance d'être dans le tableau des vainqueurs! : ");
 while ($pointsJoueur != 3 && $pointsOrdinateur != 3){
 
     $joueur = readline("\n choisissez entre pierre, feuille et ciseaux: ");
@@ -54,6 +56,10 @@ while ($pointsJoueur != 3 && $pointsOrdinateur != 3){
     echo "\n point joueur " .$pointsJoueur . "\n point ordinateur " . $pointsOrdinateur . "\n";
     if ($pointsJoueur == 3){
         echo "\n tu as gagné la partie";
+        $file ="WinnerBoard.txt";
+        $fileopen=(fopen("$file",'a'));
+        fwrite($fileopen,"\n$pseudo $pointsJoueur à $pointsOrdinateur ");
+        fclose($fileopen) ;
     }
     else if ($pointsOrdinateur == 3){
         echo "\n tu as perdu la partie ";
