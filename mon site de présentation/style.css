@@ -4,9 +4,57 @@
     color: white;
     font-family: 'Roboto', sans-serif;
 }
+body{
+    height: 100%;
+}
+main{
+    text-align: center;
+}
 .corps{
     background-color: black;
-    height: 60rem;
+    height: 100vw;
+    
+}
+.accueil{
+height: 60vw;
+line-height: 50vw;
+white-space: nowrap;
+}
+
+.monParcours{
+
+}
+
+.maPresentation{
+
+}
+
+.mesAccomplissement{
+    
+}
+
+.mesProjets{
+    
+}
+.leReplayer{
+    
+}
+.leSiteCrypto{
+    
+}
+
+.mesReseauxSociaux{
+
+}
+.git{
+
+}
+.linkedin{
+
+}
+
+h1{
+    font-size: 3vw;
 }
 
 ul {
@@ -45,12 +93,8 @@ li a:hover {
     
 }
 
-.main{
-    
-}
-.leReplayer{
-    height: 5rem;
-}
+
+
 
 .mesProjets{
     height: 10rem;

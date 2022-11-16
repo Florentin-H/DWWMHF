@@ -1,0 +1,10 @@
+Figma
+HTML5 &CSS3
+Bootstrap
+PHP - PDO - POO- MVC
+Symphonie
+PHPMyAdmin
+Merise : MCD (modele conceptuel de donné) MLD (modèle logique de donnée) -> Base de données
+SQL
+Javascript(API...)
+React
