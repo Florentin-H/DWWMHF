@@ -44,8 +44,6 @@ switch ($menu){
             $tab3[$i] = $tab3[count($tab3)-$x]; //remplace par la valeur opposée
             $tab3[count($tab3)-$x] = $temp;//met la valeur temporaire dans la valeur opposée
             $x++;
-        
-        
         }
         foreach ($tab3 as $value){
             echo $value . "|";//affichage du tableau 3
