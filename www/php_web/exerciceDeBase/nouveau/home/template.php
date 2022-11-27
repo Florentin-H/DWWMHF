@@ -27,7 +27,7 @@
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Facile</a>
 
                         <div class="dropdown-menu">
-                            <?php for ($i = 1; $i <= 10; $i++) : ?>
+                            <?php for ($i = 1; $i <= 2; $i++) : ?>
                                 <a class="dropdown-item" href="../facile/facile<?= $i ?>.php">exo <?= $i ?> </a>
                             <?php endfor; ?>
                         </div>
@@ -35,7 +35,7 @@
                     <li class=" nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Moyen</a>
                         <div class="dropdown-menu">
-                            <?php for ($i = 1; $i <= 10; $i++) : ?>
+                            <?php for ($i = 1; $i <= 4; $i++) : ?>
                                 <a class="dropdown-item" href="../moyen/moyen<?= $i ?>.php">exo <?= $i ?> </a>
                             <?php endfor; ?>
 
@@ -45,7 +45,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Difficile</a>
                         <div class="dropdown-menu">
-                            <?php for ($i = 1; $i <= 10; $i++) : ?>
+                            <?php for ($i = 1; $i <= 3; $i++) : ?>
                                 <a class="dropdown-item" href="../difficile/difficile<?= $i ?>.php">exo <?= $i ?> </a>
                             <?php endfor; ?>
 

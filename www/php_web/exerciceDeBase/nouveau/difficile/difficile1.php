@@ -2,15 +2,10 @@
 ?>
 
 <?php
+$total = 0;
 
-
-$nombre1 = 0;
-$nombre2 = 0;
-
-$input = 0;
-
-$nombre1 = $_GET['nombre1'];
-$nombre2 = $_GET['nombre2'];
+$nombre1 = isset($_GET['nombre1']) ? $_GET['nombre1'] : 0;
+$nombre2 = isset($_GET['nombre2']) ? $_GET['nombre2'] : 0;
 
 if (isset($_GET['additionner'])) {
     $total = $nombre1 + $nombre2;
@@ -23,11 +18,6 @@ if (isset($_GET['additionner'])) {
 } else if (isset($_GET["multiplication"])) {
     $total = $nombre2 * $nombre1;
 }
-
-
-
-
-
 
 ?>
 
