@@ -1,0 +1,6 @@
+Classe Personnage:
+	nom:chaine de caractère
+	role:
+	attaque:
+	pv:int
+	forceDuBien:booléen
