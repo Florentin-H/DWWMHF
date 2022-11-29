@@ -9,9 +9,9 @@
     <div class="container w-25">
         <form action="" method="POST">
             <div>
-                <label class="form-label mt-4">Adresse Email</label>
+                <label class="form-label mt-4">Adresse pseudo</label>
                 <input type="text" name="pseudo" required class="form-control" aria-describedby="emailHelp" placeholder="Entrez un pseudo">
-                <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre adresse email ou votre mot de passe.</small>
+                <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre adresse pseudo ou votre mot de passe.</small>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1" class="form-label mt-4">Mot de passe</label>

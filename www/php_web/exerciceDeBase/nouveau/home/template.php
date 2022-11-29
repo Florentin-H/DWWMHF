@@ -55,7 +55,7 @@
                     <li class=" nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">POO</a>
                         <div class="dropdown-menu">
-                            <?php for ($i = 1; $i <= 5; $i++) : ?>
+                            <?php for ($i = 1; $i <= 10; $i++) : ?>
                                 <a class="dropdown-item" href="../objet/objet<?= $i ?>.php">exo <?= $i ?> </a>
                             <?php endfor; ?>
 
