@@ -1,0 +1,2 @@
+double ":" pour signaler la constante avant la constante = ::HOMME
+$personnage1= new Personnage ("mario",165,31,(nom de classe + constante)Personnage::HOMME);

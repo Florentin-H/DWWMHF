@@ -5,7 +5,10 @@ class Animaux
 {
     public $nom;
     public $age;
-    public $chien;
+
+
+    public const CHIEN = true;
+    public const CHAT = false;
 
     public function __construct($nom, $age, $chien)
     {
@@ -14,15 +17,15 @@ class Animaux
         $this->chien = $chien;
     }
 }
-$Animaux1 = new Animaux('Lyberty', 5, true);
-$Animaux2 = new Animaux('Joy', 3, true);
-$Animaux3 = new Animaux('Inna', 10, true);
-$Animaux4 = new Animaux('Ondine', 4, false);
+$Animaux1 = new Animaux('Lyberty', 5, Animaux::CHIEN);
+$Animaux2 = new Animaux('Joy', 3,  Animaux::CHIEN);
+$Animaux3 = new Animaux('Inna', 10, Animaux::CHIEN);
+$Animaux4 = new Animaux('Ondine', 4, Animaux::CHAT);
 
 $tabAnimaux = [$Animaux1, $Animaux2, $Animaux3, $Animaux4];
 if (isset($_GET["all"])) {
     foreach ($tabAnimaux as $animal) {
-        if ($animal->chien === true) {
+        if ($animal->chien == true) {
             echo $animal->nom . " " . $animal->age . "  ans " . "chien";
         } else {
             echo $animal->nom . " " . $animal->age . "  ans " . "chat";
@@ -32,7 +35,7 @@ if (isset($_GET["all"])) {
 }
 if ((isset($_GET["dog"]))) {
     foreach ($tabAnimaux as $animal) {
-        if ($animal->chien === true) {
+        if ($animal->chien == true) {
             echo $animal->nom . " " . $animal->age . "  ans " . "chien";
         ?><p>------------------<br></p>
         <?php
@@ -42,7 +45,7 @@ if ((isset($_GET["dog"]))) {
 
 if ((isset($_GET["cat"]))) {
     foreach ($tabAnimaux as $animal) {
-        if ($animal->chien !== true) {
+        if ($animal->chien != true) {
             echo $animal->nom . " " . $animal->age . "  ans " . "chat";
         ?><p>------------------<br></p>
 <?php
