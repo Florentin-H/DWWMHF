@@ -8,6 +8,7 @@
 
 class Bibliotheque
 {
+    private static $Bibliotheque = [];
     private $titre;
     private $edition;
     private $auteur;
@@ -19,6 +20,8 @@ class Bibliotheque
         $this->edition = $edition;
         $this->auteur = $auteur;
         $this->parution = $parution;
+        self::$Bibliotheque[] = $this; //stock toutes les données de this dans le tableau de l'objet bibliothèque
+
     }
     //getter
     public function getTitre()
@@ -57,6 +60,11 @@ class Bibliotheque
         return $this->parution;
     }
 
+
+    public static function getListBibliotheque() //fonction static qui permet de récupérer les éléments de l'objet
+    {
+        return self::$Bibliotheque;
+    }
     function __toString()
     {
         return "Titre: " . $this->titre . "<br>Edition: " . $this->edition . "<br>Auteur: " . $this->auteur . "<br>Paru en: " . $this->parution . "<br><br>";
@@ -74,7 +82,7 @@ $livre9 = new Bibliotheque("L'étranger", "Folio ", "Albert Camus", 1972);
 $livre10 = new Bibliotheque("Les misérables", "Ecpme des loisirs", "Victor Hugo", 2019);
 
 
-$tabLivre = [$livre1, $livre2, $livre3, $livre4, $livre5, $livre6, $livre7, $livre8, $livre9, $livre10];
+$tabLivre = Bibliotheque::getListBibliotheque(); //reprend toutes les données stockées dans le tableau pour créer un tableau utilisable
 $edition = true;
 if (isset($_POST["edition"])) {
     foreach ($tabLivre as $value) {

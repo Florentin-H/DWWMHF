@@ -14,3 +14,12 @@ function calculMoyenne($tab, $moyenne)
 
     return $moyenne;
 }
+
+
+function genereID()
+{
+    $index = 0;
+    for ($i = 0; $i < 10; $i++) {
+        $index++;
+    }
+}
