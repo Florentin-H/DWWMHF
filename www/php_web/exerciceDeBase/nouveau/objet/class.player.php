@@ -8,23 +8,21 @@ class Player
     private $pseudo;
     private $force;
     private $pv;
-    private $arme;
+    private $idArme;
 
-
-
-
-    public function __construct($pseudo, $force, $pv)
+    public function __construct($pseudo, $force, $pv, $idArme)
     {
-        $stock = self::$idFirst++;
 
-        $this->id = $stock;
+
+        $this->id = self::$idFirst++;
         $this->pseudo = $pseudo;
         $this->force = $force;
         $this->pv = $pv;
+        $this->idArme = $idArme;
     }
 
     //getter
-    public function getID()
+    public function getId()
     {
         return $this->id;
     }
@@ -40,12 +38,17 @@ class Player
     {
         return $this->pv;
     }
+    public function getIdArme()
+    {
+        return $this->idArme;
+    }
+
 
 
 
 
     //setter
-    public function setID()
+    public function setId()
     {
         return $this->id;
     }
@@ -61,10 +64,11 @@ class Player
     {
         return $this->pv;
     }
-    public function setArme()
+    public function setIdArme()
     {
-        return $this->arme;
+        return $this->idArme;
     }
+
     function __toString()
     {
         return  $this->pseudo . $this->force . $this->pv;

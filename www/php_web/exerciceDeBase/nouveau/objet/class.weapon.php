@@ -2,23 +2,21 @@
 class Weapon
 {
     private static $idFirst = 1;
-    private $identifiant;
+    private $id;
     private $nom;
     private $degat;
 
     public function __construct($nom, $degat)
     {
-        $stock = self::$idFirst++;
-
-        $this->identifiant = $stock;
+        $this->id = self::$idFirst++;
         $this->nom = $nom;
         $this->degat = $degat;
     }
 
     //getter
-    public function getID()
+    public function getId()
     {
-        return $this->identifiant;
+        return $this->id;
     }
     public function getNom()
     {
@@ -33,21 +31,26 @@ class Weapon
 
 
     //setter
-    public function setID()
+    public function setId($id)
     {
-        return $this->identifiant;
+        $this->id = $id;
+        return $this;
     }
-    public function setNom()
+    public function setNom($nom)
     {
-        return $this->nom;
+        $this->nom = $nom;
+        return $this; //permet de modifier le $nom en plus de l'id ou du dégat en ajoutant une fleche pour $arme1->setDegat() = "Fluent Setter" = permet de chainer les setter (j'enchaine les setters)
     }
-    public function setForce()
+    public function setDegat($degat)
     {
-        return $this->degat;
+        $this->degat = $degat;
+        return $this;
     }
 }
 $arme1 = new Weapon("Ak47", 30);
 $arme2 = new Weapon("AWP", 100);
 $arme3 = new Weapon("P90", 13);
 $arme4 = new Weapon("M4A1-S", 25);
-$tabWeapon = [$arme1, $arme2, $arme3, $arme4];
+$weapons = [$arme1, $arme2, $arme3, $arme4];
+
+$arme1->setDegat(50);
