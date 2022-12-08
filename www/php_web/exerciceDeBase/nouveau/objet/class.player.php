@@ -48,25 +48,21 @@ class Player
 
 
     //setter
-    public function setId()
+    //setter
+    public function setId($id)
     {
-        return $this->id;
+        $this->id = $id;
+        return $this;
     }
-    public function setPseudo()
+    public function setPseudo($pseudo)
     {
-        return $this->pseudo;
+        $this->pseudo = $pseudo;
+        return $this; //permet de modifier le $nom en plus de l'id ou du dégat en ajoutant une fleche pour $arme1->setDegat() = "Fluent Setter" = permet de chainer les setter (j'enchaine les setters)
     }
-    public function setForce()
+    public function setDegat($degat)
     {
-        return $this->force;
-    }
-    public function setPv()
-    {
-        return $this->pv;
-    }
-    public function setIdArme()
-    {
-        return $this->idArme;
+        $this->degat = $degat;
+        return $this;
     }
 
     function __toString()
