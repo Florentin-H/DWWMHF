@@ -1,8 +1,9 @@
 <?php
+
 class LigneCommande
 {
 
-    protected $produit;
+    protected Produit $produit;
     protected $qte;
 
 
@@ -35,11 +36,13 @@ class LigneCommande
         return $this; //permet de modifier le $nom en plus du prénom ou d'un autre paramètre en ajoutant une fleche pour  = "Fluent Setter" = permet de chainer les setter (j'enchaine les setters)
     }
 
-    public function __toString()
+    public function affichage()
     {
-        return $this->produit . " " . $this->qte . " : ";
+        echo "Nom du produit: " . $this->produit->getLibelle() .  ", quantité : $this->qte. Prix total : ";
     }
+
     public function calculTotalLigneTTC()
     {
+        return $this->qte * $this->produit->getPrixUnitaire();
     }
 }

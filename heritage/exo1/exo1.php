@@ -8,7 +8,7 @@ $employe3 = new Employe("Simon", "Jeremy", "1756165848947", 1900.14, "assistant 
 
 $employes = [$employe1, $employe2, $employe3,];
 foreach ($employes as $employe) {
-    echo $employe->__toString();
+    echo $employe;
     echo $employe->effectueSonJob();
 }
 
@@ -19,7 +19,7 @@ foreach ($employes as $employe) {
 
 $cadre1 = new Cadre("Alain", "Deloin", "18402554988666", 2100.23, "chef maintenance", [$employe1, $employe2]);
 
-echo $cadre1->__toString();
+echo $cadre1;
 echo $cadre1->manage();
 
 echo $cadre1->augmenteUnSalaire(0.1, $employe1);
