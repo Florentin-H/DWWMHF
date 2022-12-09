@@ -35,11 +35,15 @@ class Cadre extends Employe
     {
         $phrase = "Le manager manage: ";
         foreach ($this->getListeEmploye() as $employe) {
-            $phrase = $phrase . $employe . ", ";
+            $phrase = $phrase . $employe->getNom() . ", ";
         }
         return $phrase;
     }
-    function augmenteUnSalaire()
+    function augmenteUnSalaire($pourcentage, $employe)
     {
+        $phraseDebut = "le nouveau salaire de l'employé  " . $employe->getNom() . " est de ";
+        $salaireAugmente = $employe->getSalaire() * $pourcentage + $employe->getSalaire();
+        $phraseFin = "<br>";
+        return $phraseDebut . $salaireAugmente . $phraseFin;
     }
 }

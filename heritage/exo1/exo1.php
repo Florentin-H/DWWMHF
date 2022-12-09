@@ -17,7 +17,10 @@ foreach ($employes as $employe) {
 
 
 
-$cadre1 = new Cadre("Alain", "Deloin", "18402554988666", 2100.23, "chef maintenance", [$employe1->getNom(), $employe2->getNom()]);
+$cadre1 = new Cadre("Alain", "Deloin", "18402554988666", 2100.23, "chef maintenance", [$employe1, $employe2]);
 
 echo $cadre1->__toString();
 echo $cadre1->manage();
+
+echo $cadre1->augmenteUnSalaire(0.1, $employe1);
+echo $cadre1->augmenteUnSalaire(0.2, $employe2);
