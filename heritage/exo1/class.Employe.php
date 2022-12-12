@@ -47,10 +47,6 @@ class Employe
     }
 
 
-
-
-
-    //setter
     //setter
     public function setId($id)
     {
@@ -98,6 +94,10 @@ class Employe
         if ($this->job == "voiturier") {
             echo "Mon métier est voiturier, je répare vos voitures ";
         }
+        if ($this->job == "chef maintenance") {
+            echo "Mon métier est chef maintenance, je gère vos vies ";
+        }
+
         echo "<br/>--------------<br/>";
     }
 }

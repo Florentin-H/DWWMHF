@@ -2,7 +2,7 @@
 require_once "class.Employe.php";
 class Cadre extends Employe
 {
-    protected $listeEmploye;
+    private $listeEmploye;
 
     public function __construct($nom, $prenom, $numSecu, $salaire, $job, $listeEmploye)
     {
