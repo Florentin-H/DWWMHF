@@ -1,33 +1,37 @@
 <?php
-
+require "classAbstraite.animal.php";
 class Lapin extends Animal
 {
     // Attributs de la classe
     private $enVie;
 
     // Constructeur de la classe
-    public function __construct($couleur, $enVie)
+    public function __construct($couleur, $nombrePattes)
     {
-        parent::__construct($couleur, 4);
-        $this->enVie = $enVie;
+        $this->enVie = true;
+        parent::__construct($couleur, $nombrePattes);
     }
 
 
 
     // Méthodes
-    public function nourrir()
+    public function seNourrir()
     {
-        echo "{$this->nom} se nourrit\n";
+        echo "Le lapin se nourrit\n";
     }
 
     public function crier()
     {
-        echo "{$this->nom} glapit de peur\n";
+        echo "Le lapin glapit de peur\n";
     }
 
     public function fuir()
     {
-        echo "{$this->nom} s'enfuit sur ses 4 pattes d'un seul bond !\n";
+        $this->seDeplacer();
+    }
+    public function seDeplacer()
+    {
+        echo "Le lapin s'enfuit sur ses 4 pattes d'un seul bond !\n";
     }
 
     public function estEnVie()

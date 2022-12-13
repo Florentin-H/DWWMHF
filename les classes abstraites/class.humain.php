@@ -1,5 +1,6 @@
 <?php
-class Humain implements Deplacement
+require_once "interface.deplacement.php";
+class Humain
 {
     // Attributs de la classe
     private $nom;
@@ -9,8 +10,6 @@ class Humain implements Deplacement
     {
         $this->nom = $nom;
     }
-
-
 
     // Getter pour l'attribut de la classe
     public function getNom()

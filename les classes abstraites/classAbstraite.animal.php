@@ -12,8 +12,7 @@ abstract class Animal
         $this->nombrePattes = $nombrePattes;
     }
 
-    // Méthodes de la classe
-    abstract public function crier();
+
 
     // Getters pour les attributs de la classe
     public function getCouleur()

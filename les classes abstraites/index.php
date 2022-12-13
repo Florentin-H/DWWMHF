@@ -1,12 +1,17 @@
 <?php
 require "class.lapin.php";
 require "class.chasseur.php";
-// Création du lapin
-$lapin = new Lapin();
-$lapin->seNourrir();
+
+
 
 // Création du chasseur
 $chasseur = new Chasseur("Paul", "fusil");
+$chasseur->seDeplacer();
+
+// Création du lapin
+$lapin = new Lapin("blanc", 4);
+
+$lapin->seNourrir();
 
 // Boucle tant que le lapin est en vie
 while ($lapin->estEnVie()) {
@@ -26,4 +31,4 @@ while ($lapin->estEnVie()) {
 }
 
 // Si le lapin n'est plus en vie, le programme s'arrête
-echo "Le pauvre petit lapin blanc est malheureusement mort.";
+echo "le pauvre petit lapin blanc est malheureusement mort.";
