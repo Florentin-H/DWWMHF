@@ -25,7 +25,7 @@ abstract class Character
 
     public function getStrenghtPoint()
     {
-        return $this->LifePoint;
+        return $this->strenghtPoint;
     }
 
     public function attack()
