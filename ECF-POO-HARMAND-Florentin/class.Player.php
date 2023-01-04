@@ -35,7 +35,7 @@ class Player extends Character
 
     public function move()
     {
-        $menu = readline(" \nPressez 1 pour aller vers le nord \n 2 pour aller vers le Sud \n 3 pour aller vers l'Est \n 4 pour aller vers l'Ouest \n Pressez 0 pour quitter\n");
+        $menu = readline(" \nPressez 1 pour aller vers le nord \n Pressez 2 pour aller vers le Sud \n Pressez 3 pour aller vers l'Est \n Pressez 4 pour aller vers l'Ouest \n Pressez 0 pour quitter\n");
         switch ($menu) {
             case 1:
                 echo "Vous allez vers le Nord\n\n";
