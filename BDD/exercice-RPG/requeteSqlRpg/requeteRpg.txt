@@ -1,0 +1,57 @@
+1.
+    1.SELECT * FROM personnage
+    2.SELECT * FROM arme
+    3.SELECT nom,levelMIN FROM arme
+    4.SELECT nom,surnom,level FROM personnage
+    5.SELECT nom as Pseudo,level as Niveau FROM personnage
+    6.SELECT libelle as Type d'arme a feu FROM arme
+2.
+    1.SELECT COUNT() FROM arme
+    2.SELECT COUNT() FROM personnage
+    3.SELECT AVG(level) FROM personnage
+    4.SELECT SUM(baseForce),SUM(baseAgi),SUM(baseIntel) FROM classe
+    5.SELECT MIN(levelMIN),MAX(levelMIN) FROM arme
+    6.SELECT SUM(baseForce + baseAgi + baseIntel) FROM classe
+3.
+    1.SELECT concat(nom, ' ' ,surnom) FROM personnage
+    2.SELECT concat(nom, ' ' ,baseForce,' ',baseAgi,' ',baseIntel) FROM classe
+    3.SELECT substring(nom,1,6) FROM personnage
+    4SELECT concat(substring(nom,1,5),substring(description,1,20)) FROM classe
+4.
+    1.SELECT * FROM arme WHERE levelMIN>4
+    2.SELECT * FROM arme WHERE degat<25
+    3.SELECT nom,surnom FROM personnage WHERE level=10
+    4.SELECT * FROM TypeArme WHERE estDistance=1
+5.
+SELECT * FROM arme WHERE levelMin BETWEEN 4 AND 8    
+SELECT * FROM personnage WHERE idPersonnage <3 AND level = 10 
+SELECT * FROM arme WHERE levelMin <=4 OR levelMin >=8 
+SELECT * FROM arme WHERE idArme =1 OR idArme =2 OR degat >=30 
+SELECT * FROM arme WHERE idArme <=2 OR degat BETWEEN 25 AND 40 
+SELECT * FROM personnage WHERE level <> AND level NOT BETWEEN 7 AND 6
+SELECT COUNT(*) FROM personnage WHERE level <>10
+SELECT AVG(degat) FROM arme WHERE levelMin BETWEEN 3 AND 7
+SELECT * FROM personnage WHERE nom LIKE 'l%'
+SELECT * FROM personnage WHERE nom LIKE 'l%er'
+SELECT * FROM arme WHERE nom LIKE '%bois%'
+SELECT * FROM arme WHERE nom LIKE 'a_b%'
+SELECT * FROM arme WHERE idArme IN(1,2,4,5,7)
+SELECT * FROM personnage WHERE idPersonnage IN(2,3,4,6) AND level = 10 
+SELECT * FROM personnage WHERE surnom IS NOT NULL
+SELECT * FROM personnage WHERE surnom IS NULL
+SELECT * FROM personnage LIMIT 3
+SELECT * FROM personnage LIMIT 2 OFFSET 3
+
+
+Les jointures 
+
+1 Les jointures internes
+
+SELECT * FROM personnage INNER JOIN classe ON personnage.idClasse = classe.idClasse
+SELECT nom, levelMin, degat, libelle, estDistance FROM arme INNER JOIN typearme ON arme.idTypeArme = typearme.idTypeArme 
+
+2 les jointures et surnoms de tables
+
+SELECT classe.nom, personnage.nom FROM personnage INNER JOIN classe ON personnage.idClasse = classe.idClasse
+SELECT classe.nom AS nomDeClasse, personnage.nom AS nomDePersonnage FROM personnage INNER JOIN classe ON personnage.idClasse = classe.idClasse
+SELECT * FROM arme INNER JOIN personnage ON arme.idArme = personnage.idArmeUtilise
