@@ -16,7 +16,11 @@ ob_start() ?>
             <td class="align-middle"><a href="<?= URL ?>livres/l/<?= $livres[$i]->getID() ?>"><?= $livres[$i]->getTitre() ?></td>
             <td class="align-middle"><?= $livres[$i]->getNbPages() ?></td>
             <td class="align-middle"><a href="" class="btn btn-warning">Modifier</a></td>
-            <td class=" align-middle"><a href="" class="btn btn-danger">supprimer</a></td>
+            <td class=" align-middle">
+                <form action="<?= URL ?>livres/s/<?= $livres[$i]->getId() ?>" onSubmit="return confirm('Voulez vous vraiment supprimer le livre?');" method="post">
+                    <button class="btn btn-danger" type="submit">Supprimer</button>
+                </form>
+            </td>
             </td>
         </tr>
     <?php } ?>

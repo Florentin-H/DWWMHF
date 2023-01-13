@@ -48,4 +48,37 @@ class LivreManager extends Model
             }
         }
     }
+
+    public function ajoutLivreBd($titre, $nbPages, $image)
+    {
+        $req = "
+        INSERT INTO livres (titre, nbPages, images)
+        values (:titre, :nbPages, :image)";
+        $stmt = $this->getBdd()->prepare($req);
+        $stmt->bindValue(":titre", $titre, PDO::PARAM_STR);
+        $stmt->bindValue(":nbPages", $nbPages, PDO::PARAM_INT);
+        $stmt->bindValue(":image", $image, PDO::PARAM_STR);
+        $resultat = $stmt->execute();
+        $stmt->closeCursor();
+
+        if ($resultat > 0) {
+            $livre = new Livre($this->getBdd()->lastInsertId(), $titre, $nbPages, $image);
+            $this->ajoutLivre($livre);
+        }
+    }
+
+    public function suppressionLivreBd($id)
+    {
+        $req = "
+        DELETE from livres WHERE id = :idLivre
+        ";
+        $stmt = $this->getBdd()->prepare($req);
+        $stmt->bindValue(":idLivre", $id, PDO::PARAM_INT);
+        $resultat = $stmt->execute();
+        $stmt->closeCursor();
+        if ($resultat > 0) {
+            $livre = $this->getLivreById($id);
+            unset($livre);
+        }
+    }
 }

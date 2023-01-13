@@ -24,6 +24,7 @@ class LivresController
         require "views/afficherLivre.view.php";
     }
 
+
     public function ajoutLivre()
     {
         require "views/ajoutLivre.view.php";
@@ -36,6 +37,16 @@ class LivresController
         // echo "</pre>";
         $repertoire = "public/images/";
         $nomImageAjoute = $this->ajoutImage($file, $repertoire);
+        $this->livreManager->ajoutLivreBd($_POST['titre'], $_POST['nbPages'], $nomImageAjoute);
+        header('location: ' . URL . "livres");
+    }
+
+    public function suppressionLivre($id)
+    {
+        $nomImage = $this->livreManager->getLivreById($id)->getImage();
+        unlink("public/images/" . $nomImage);
+        $this->livreManager->suppressionLivreBd($id);
+        header('location: ' . URL . "livres");
     }
     private function ajoutImage($file, $dir)
     {
