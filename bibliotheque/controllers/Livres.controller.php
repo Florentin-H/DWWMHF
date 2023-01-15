@@ -4,6 +4,7 @@ require_once "models/LivreManager.class.php";
 
 class LivresController
 {
+    //utilise les attributs de la classe LivreManager
     private $livreManager;
 
     public function __construct()
@@ -23,6 +24,11 @@ class LivresController
         $livre = $this->livreManager->getLivreById($id);
         require "views/afficherLivre.view.php";
     }
+    public function modificationLivre($id)
+    {
+        $livre = $this->livreManager->getLivreById($id);
+        require "views/modifierLivre.view.php";
+    }
 
 
     public function ajoutLivre()
@@ -39,6 +45,11 @@ class LivresController
         $nomImageAjoute = $this->ajoutImage($file, $repertoire);
         $this->livreManager->ajoutLivreBd($_POST['titre'], $_POST['nbPages'], $nomImageAjoute);
         header('location: ' . URL . "livres");
+
+        $_SESSION['alert'] = [
+            "type" => "success",
+            "msg" => "Ajout réalisé"
+        ];
     }
 
     public function suppressionLivre($id)
@@ -47,6 +58,11 @@ class LivresController
         unlink("public/images/" . $nomImage);
         $this->livreManager->suppressionLivreBd($id);
         header('location: ' . URL . "livres");
+
+        $_SESSION['alert'] = [
+            "type" => "success",
+            "msg" => "Suppression réalisé"
+        ];
     }
     private function ajoutImage($file, $dir)
     {
@@ -70,5 +86,27 @@ class LivresController
         if (!move_uploaded_file($file['tmp_name'], $targetfile))
             throw new Exception("l'ajout de l'image n'a pas fonctionné");
         else return ($random . "" . $file['name']);
+    }
+
+    public function modificationLivreValidation()
+    {
+        $imageActuelle = $this->livreManager->getLivreById($_POST['identifiant'])->getImage();
+
+        $file = $_FILES['images'];
+
+        if ($file['size'] > 0) {
+            unlink("public/images/" . $imageActuelle);
+            $repertoire = "public/images/";
+            $nomImageToAdd = $this->ajoutImage($file, $repertoire);
+        } else {
+            $nomImageToAdd = $imageActuelle;
+        }
+        $this->livreManager->modificationLivreBd($_POST['identifiant'], $_POST['titre'], $_POST['nbPages'], $nomImageToAdd);
+        header('location: ' . URL . "livres");
+
+        $_SESSION['alert'] = [
+            "type" => "success",
+            "msg" => "Modification réalisé"
+        ];
     }
 }

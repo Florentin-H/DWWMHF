@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+
 define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") .
     "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 require_once "controllers/Livres.controller.php";
@@ -24,11 +27,13 @@ try {
                 } else if ($url[1] === "a") {
                     $livreController->ajoutLivre();
                 } else if ($url[1] === "m") {
-                    echo "modification d'un livre";
+                    $livreController->modificationLivre((int)$url[2]);
                 } else if ($url[1] === "s") {
                     $livreController->suppressionLivre((int)$url[2]);
                 } else if ($url[1] === "av") {
                     $livreController->ajoutLivreValidation();
+                } else if ($url[1] === "mv") {
+                    $livreController->modificationLivreValidation();
                 } else {
                     throw new Exception("La page n'existe pas");
                 }
@@ -38,5 +43,6 @@ try {
         }
     }
 } catch (Exception $e) {
-    echo $e->getMessage();
+    $msg =  $e->getMessage();
+    require "views/error.view.php";
 }
