@@ -23,12 +23,6 @@ DROP TABLE IF EXISTS Nft ;
 CREATE TABLE Nft (idNft int AUTO_INCREMENT NOT NULL,
 nomNft VARCHAR(50),
 imagesNft VARCHAR(50),
-background VARCHAR(50),
-hat VARCHAR(50),
-accessoireMain VARCHAR(50),
-pull VARCHAR(50),
-collier VARCHAR(50),
-accessoireDos VARCHAR(50),
 idUtilisateur INT,
 idCollection INT,
 PRIMARY KEY (idNft) ) ENGINE=InnoDB;
