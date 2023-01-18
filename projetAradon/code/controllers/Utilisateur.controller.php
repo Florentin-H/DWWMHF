@@ -4,7 +4,7 @@ require_once "models/UtilisateurManager.class.php";
 
 class UtilisateurController
 {
-    //utilise les attributs de la classe NftManager
+    //utilise les attributs de la classe utilisateurManager
     private $utilisateurManager;
 
     public function __construct()
@@ -37,14 +37,15 @@ class UtilisateurController
     }
     public function ajoutUtilisateurValidation()
     {
-        $file = $_FILES['imageUtilisateur'];
+        $file = $_FILES['profilPicture'];
         // echo "<pre>";
         // print_r($file);
         // echo "</pre>";
-        $repertoire = "public/images/nft";
-        $nomImageAjoute = $this->ajoutImageNft($file, $repertoire);
-        $this->nftManager->ajoutNftBd($_POST['nomNft'], $_POST['imageNft'], $nomImageAjoute);
-        header('location: ' . URL . "nft");
+        $repertoire = "public/images/profilPicture";
+        $nomImageAjoute = $this->ajoutImageUtilisateur($file, $repertoire);
+        //pas convaincu des _post utilisé, idUtilisateur plutot que dateCreationProfil? comment gérer la date de création du profil automatiquement?
+        $this->utilisateurManager->ajoutUtilisateurBd($_POST['pseudo'], $_POST['adresseMail'], $_POST['password'], $_POST['adresse'], $_POST['dateOfBirth'], $nomImageAjoute, null);
+        header('location: ' . URL . "utilisateur");
 
         $_SESSION['alert'] = [
             "type" => "success",
@@ -52,30 +53,30 @@ class UtilisateurController
         ];
     }
 
-    public function suppressionNft($id)
+    public function suppressionUtilisateur($id)
     {
-        $nomImage = $this->nftManager->getNftById($id)->getImage();
-        unlink("public/images/nft" . $nomImage);
-        $this->nftManager->suppressionNftBd($id);
-        header('location: ' . URL . "nft");
+        $nomImage = $this->utilisateurManager->getUtilisateurById($id)->getImage();
+        unlink("public/images/profilPicture" . $nomImage);
+        $this->utilisateurManager->suppressionUtilisateurBd($id);
+        header('location: ' . URL . "utilisateur");
 
         $_SESSION['alert'] = [
             "type" => "success",
             "msg" => "Suppression réalisé"
         ];
     }
-    private function ajoutImageNft($file, $dir)
+    private function ajoutImageUtilisateur($file, $dir)
     {
-        if (!isset($file['name']) || empty($file['name']))
-            throw new Exception("Vous devez indiquer une image pour le Nft");
+        if (!isset($file['profilPicture']) || empty($file['profilPicture']))
+            throw new Exception("Vous devez indiquer une image pour l'utilisateur");
 
         if (!file_exists($dir)) mkdir($dir, 0777);
 
-        $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+        $extension = strtolower(pathinfo($file['profilPicture'], PATHINFO_EXTENSION));
         $random = rand(0, 99999);
-        $targetfile = $dir . $random . "" . $file['name'];
+        $targetfile = $dir . $random . "" . $file['profilPicture'];
 
-        if (!getimagesize($file["tmp_name"]))
+        if (!getimagesize($file["tmp_profilPicture"]))
             throw new Exception("Le fichier n'est pas une image");
         if ($extension !== "jpg" && $extension !== "jpeg" && $extension !== "png" && $extension !== "gif")
             throw new Exception("L'extension du fichier n'est pas reconnu");
@@ -83,25 +84,25 @@ class UtilisateurController
             throw new Exception("Le fichier existe déjà");
         if ($file['size'] > 500000)
             throw new Exception("Le fichier est trop gros");
-        if (!move_uploaded_file($file['tmp_name'], $targetfile))
+        if (!move_uploaded_file($file['tmp_profilPicture'], $targetfile))
             throw new Exception("l'ajout de l'image n'a pas fonctionné");
-        else return ($random . "" . $file['name']);
+        else return ($random . "" . $file['profilPicture']);
     }
 
-    public function modificationNftValidation()
+    public function modificationUtilisateurValidation()
     {
-        $imageActuelle = $this->nftManager->getNftById($_POST['identifiant'])->getImage();
+        $imageActuelle = $this->utilisateurManager->getUtilisateurById($_POST['username'])->getImage();
 
-        $file = $_FILES['images'];
+        $file = $_FILES['profilPicture'];
 
         if ($file['size'] > 0) {
-            unlink("public/images/nft" . $imageActuelle);
-            $repertoire = "public/images/nft";
-            $nomImageToAdd = $this->ajoutImageNft($file, $repertoire);
+            unlink("public/images/profilPicture" . $imageActuelle);
+            $repertoire = "public/images/profilPicture";
+            $nomImageToAdd = $this->ajoutImageUtilisateur($file, $repertoire);
         } else {
             $nomImageToAdd = $imageActuelle;
         }
-        $this->nftManager->modificationNftBd($_POST['identifiant'], $_POST['titre'], $_POST['nbPages'], $nomImageToAdd);
+        $this->utilisateurManager->modificationUtilisateurBd($_POST['username'], $_POST['titre'], $_POST['nbPages'], $nomImageToAdd);
         header('location: ' . URL . "livres");
 
         $_SESSION['alert'] = [

@@ -1,6 +1,6 @@
 <?php
 //pas besoin de ../ car on part directement de l'index qui est lui à l'extérieur de tout dossier
-require_once "models/NftManager.class.php";
+require_once "models/nft/NftManager.class.php";
 
 class NftController
 {

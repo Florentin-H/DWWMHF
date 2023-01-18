@@ -90,6 +90,7 @@ class LivresController
 
     public function modificationLivreValidation()
     {
+        //post fait référence au nom du bouton qui correspond au livre
         $imageActuelle = $this->livreManager->getLivreById($_POST['identifiant'])->getImage();
 
         $file = $_FILES['images'];

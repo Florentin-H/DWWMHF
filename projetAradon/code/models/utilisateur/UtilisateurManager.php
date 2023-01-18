@@ -120,12 +120,12 @@ class UtilisateurManager extends Model
 
         $stmt->closeCursor();
         if ($resultat > 0) {
-            $this->getUtilisateurById($id)->setpseudo($pseudo);
-            $this->getUtilisateurById($id)->setadresseMail($adresseMail);
-            $this->getUtilisateurById($id)->setpassword($password);
-            $this->getUtilisateurById($id)->setpassword($adresse);
-            $this->getUtilisateurById($id)->setpassword($dateOfBirth);
-            $this->getUtilisateurById($id)->setpassword($profilPicture);
+            $this->getUtilisateurById($id)->setPseudo($pseudo);
+            $this->getUtilisateurById($id)->setAdresseMail($adresseMail);
+            $this->getUtilisateurById($id)->setPassword($password);
+            $this->getUtilisateurById($id)->setAdresse($adresse);
+            $this->getUtilisateurById($id)->setDateOfBirth($dateOfBirth);
+            $this->getUtilisateurById($id)->setProfilPicture($profilPicture);
         }
     }
 }
