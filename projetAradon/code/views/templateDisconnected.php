@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Document</title>
 </head>
+
 <header>
 
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid  ">
             <img src="public/images/logo/logoNftHaven.png" alt="">
-            <a class="navbar-brand" href="#">NFT HAVEN</a>
+            <a class="navbar-brand" href="index.php">NFT HAVEN</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

@@ -38,9 +38,9 @@ class LivresController
     public function ajoutLivreValidation()
     {
         $file = $_FILES['image'];
-        // echo "<pre>";
-        // print_r($file);
-        // echo "</pre>";
+        echo "<pre>";
+        print_r($file);
+        echo "</pre>";
         $repertoire = "public/images/";
         $nomImageAjoute = $this->ajoutImage($file, $repertoire);
         $this->livreManager->ajoutLivreBd($_POST['titre'], $_POST['nbPages'], $nomImageAjoute);

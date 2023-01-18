@@ -4,8 +4,14 @@ session_start();
 
 define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") .
     "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
-require_once "controllers/Nft.controller.php";
-$nftController = new NftController;
+require_once "src/Controllers/NftController.php";
+require_once "src/Controllers/UserController.php";
+require_once "src/Controllers/AuthController.php";
+
+$nftController = new NftController();
+$userController = new UserController();
+$authController = new AuthController();
+
 
 try {
     if (empty($_GET['page'])) {
@@ -20,10 +26,13 @@ try {
                 require "views/accueil.view.php";
                 break;
             case "register":
-                require "views/register.view.php";
+                $authController->register();
                 break;
             case "login":
                 require "views/login.view.php";
+                break;
+            case "users":
+                require "views/users.view.php";
                 break;
             case "nft":
                 if (empty($url[1])) {
@@ -32,7 +41,7 @@ try {
                     $nftController->affichernft((int)$url[2]);
                 } else if ($url[1] === "a") {
                     $nftController->ajoutnft();
-                } else if ($url[1] === "m") {
+                } else if ($url[1] === "edit") {
                     $nftController->modificationnft((int)$url[2]);
                 } else if ($url[1] === "s") {
                     $nftController->suppressionnft((int)$url[2]);
