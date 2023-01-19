@@ -41,13 +41,25 @@
                     </li>
                 </ul>
                 <div class="d-flex align-middle  connexion">
+                    <?php if (!isset($_SESSION['currentUser'])) {
 
-                    <li class="nav-item me-5 mb-4 text-end">
-                        <a class="nav-link btn btn-success p-2 " " href=" <?= URL ?>login" tabindex="-1" aria-disabled="true">Sign in</a>
-                    </li>
-                    <li class="nav-item mb-4  text-end">
-                        <a class="nav-link btn btn-warning p-2" href="<?= URL ?>register" tabindex="-1" aria-disabled="true">Sign up</a>
-                    </li>
+                    ?>
+                        <li class="nav-item me-5 mb-4 text-end">
+                            <a class="nav-link btn btn-success p-2 " " href=" <?= URL ?>login" tabindex="-1" aria-disabled="true">Sign in</a>
+                        </li>
+                        <li class="nav-item mb-4  text-end">
+                            <a class="nav-link btn btn-warning p-2" href="<?= URL ?>register" tabindex="-1" aria-disabled="true">Sign up</a>
+                        </li>
+                    <?php } else {
+                    ?>
+                        <li class="nav-item mb-4  text-end">
+                            <a class="nav-link btn btn-warning p-2" href="<?= URL ?>profil" tabindex="-1" aria-disabled="true">mon Profil</a>
+                        </li>
+                        <li class="nav-item mb-4  text-end">
+                            <a class="nav-link btn btn-warning p-2" href="<?= URL ?>logout" tabindex="-1" aria-disabled="true">Déconnexion</a>
+                        </li>
+                    <?php
+                    } ?>
                 </div>
 
             </div>

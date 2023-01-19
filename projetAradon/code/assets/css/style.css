@@ -1,11 +1,13 @@
 /* couleur de nftHaven rgba(0, 119, 106, 1); */
 
+/* couleur background body : background-color: rgba(30, 30, 30, 1); */
+
 nav {
   background-color: rgba(23, 48, 42, 1);
 }
 
 body {
-  background-color: rgba(30, 30, 30, 1);
+  background-color: rgb(100, 94, 94);
   height: auto;
 }
 

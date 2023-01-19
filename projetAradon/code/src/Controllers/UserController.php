@@ -18,4 +18,13 @@ class UserController
 
         require "views/utilisateur.view.php";
     }
+
+    public function profil()
+    {
+        if (!$_SESSION['currentUser']) {
+            header('location: ' . URL . "login");
+            return;
+        }
+        require "views/user/profil.php";
+    }
 }

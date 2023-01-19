@@ -5,4 +5,4 @@
 <?php
 $content = ob_get_clean();
 $titre = "Erreur!!!";
-require "templateDisconnected.php";
+require "views/templateDisconnected.php";

@@ -2,31 +2,31 @@
 
 class User
 {
-    private $id;
+    private $idUtilisateur;
     private $pseudo;
     private $eMail;
     private $password;
     private $adresse;
     private $dateOfBirth;
     private $profilPicture;
-    private $createAccount;
+    private $dateCreationProfil;
 
 
-    public function __construct($id, $pseudo, $eMail, $password, $adresse, $dateOfBirth, $profilPicture, $createAccount)
+    public function __construct($idUtilisateur, $pseudo, $eMail, $password, $adresse, $dateOfBirth, $profilPicture, $dateCreationProfil)
     {
-        $this->id = $id;
+        $this->idUtilisateur = $idUtilisateur;
         $this->pseudo = $pseudo;
         $this->eMail = $eMail;
         $this->password = $password;
         $this->adresse = $adresse;
-        $this->adresse = $dateOfBirth;
-        $this->adresse = $profilPicture;
-        $this->adresse = $createAccount;
+        $this->dateOfBirth = $dateOfBirth;
+        $this->profilPicture = $profilPicture;
+        $this->dateCreationProfil = $dateCreationProfil;
     }
 
     public function getId()
     {
-        return $this->id;
+        return $this->idUtilisateur;
     }
     public function getPseudo()
     {
@@ -52,9 +52,9 @@ class User
     {
         return $this->profilPicture;
     }
-    public function getCreateAccount()
+    public function getDateCreationProfil()
     {
-        return $this->createAccount;
+        return $this->dateCreationProfil;
     }
 
     public function setPseudo($pseudo)
@@ -87,9 +87,9 @@ class User
         $this->profilPicture = $profilPicture;
         return $this;
     }
-    public function setCreateAccount($createAccount)
+    public function setDateCreationProfil($dateCreationProfil)
     {
-        $this->createAccount = $createAccount;
+        $this->dateCreationProfil = $dateCreationProfil;
         return $this;
     }
 }

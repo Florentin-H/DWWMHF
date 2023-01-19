@@ -12,7 +12,6 @@ $nftController = new NftController();
 $userController = new UserController();
 $authController = new AuthController();
 
-
 try {
     if (empty($_GET['page'])) {
         require "views/accueil.view.php";
@@ -23,32 +22,37 @@ try {
         // echo "</pre>";
         switch ($url[0]) {
             case 'accueil':
+
                 require "views/accueil.view.php";
                 break;
+            case 'profil':
+
+                $userController->profil();;
+                break;
             case "register":
+
                 $authController->register();
                 break;
             case "login":
-                require "views/login.view.php";
+                $authController->login();
+                break;
+            case "logout":
+                $authController->logout();
                 break;
             case "users":
-                require "views/users.view.php";
+                require "views/users.php";
                 break;
             case "nft":
                 if (empty($url[1])) {
-                    $nftController->affichernfts();
+                    $nftController->list();
                 } else if ($url[1] === "l") {
-                    $nftController->affichernft((int)$url[2]);
+                    $nftController->item((int)$url[2]);
                 } else if ($url[1] === "a") {
-                    $nftController->ajoutnft();
+                    $nftController->add();
                 } else if ($url[1] === "edit") {
-                    $nftController->modificationnft((int)$url[2]);
+                    $nftController->edit((int)$url[2]);
                 } else if ($url[1] === "s") {
-                    $nftController->suppressionnft((int)$url[2]);
-                } else if ($url[1] === "av") {
-                    $nftController->ajoutnftValidation();
-                } else if ($url[1] === "mv") {
-                    $nftController->modificationnftValidation();
+                    $nftController->delete((int)$url[2]);
                 } else {
                     throw new Exception("La page n'existe pas");
                 }

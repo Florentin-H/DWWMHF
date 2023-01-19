@@ -4,24 +4,23 @@ require_once "src/Models/User.php";
 
 class UserRepository extends AbstractRepository
 {
-    public function addUser(User $user)
+    public function addUser($user)
     {
         $req = "
         INSERT INTO utilisateur (pseudo, adresseMail, password, adresse, dateOfBirth, profilPicture, dateCreationProfil)
-        values (:pseudo, :adresseMail, :password, :adresse, :dateOfBirth, :profilPicture, :dateCreationProfil)";
+        values (:pseudo, :email, :password, :adresse, :dateOfBirth, :profilPicture, :dateCreationProfil)";
         $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":pseudo", $user->getPseudo(), PDO::PARAM_STR);
-        $stmt->bindValue(":adresseMail", $user->getEmail(), PDO::PARAM_STR);
-        $stmt->bindValue(":password", $user->getPassword(), PDO::PARAM_STR);
-        $stmt->bindValue(":adresse", $user->getAdresse(), PDO::PARAM_STR);
-        $stmt->bindValue(":dateOfBirth", $user->getDateOfBirth(), PDO::PARAM_STR);
-        $stmt->bindValue(":profilPicture", $user->getProfilPicture(), PDO::PARAM_STR);
-        $stmt->bindValue(":dateCreationProfil", $user->getCreateAccount(), PDO::PARAM_STR);
+        $stmt->bindValue(":pseudo", $user['pseudo'], PDO::PARAM_STR);
+        $stmt->bindValue(":email", $user['email'], PDO::PARAM_STR);
+        $stmt->bindValue(":password", $user['password'], PDO::PARAM_STR);
+        $stmt->bindValue(":adresse", $user['adresse'], PDO::PARAM_STR);
+        $stmt->bindValue(":dateOfBirth", date("Y-m-d", strtotime($user['dateOfBirth'])), PDO::PARAM_STR);
+        $stmt->bindValue(":profilPicture", $user['profilPicture'], PDO::PARAM_STR);
+        $stmt->bindValue(":dateCreationProfil", date('Y-m-d h:i:s'), PDO::PARAM_STR);
         $resultat = $stmt->execute();
         $stmt->closeCursor();
-
         if ($resultat > 0) {
-            return new User($this->getBdd()->lastInsertId(), $user->getPseudo(), $user->getEmail(), $user->getPassword(), $user->getAdresse(), $user->getDateOfBirth(), $user->getProfilPicture(), $user->getCreateAccount());
+            return new User($this->getBdd()->lastInsertId(), $user['pseudo'], $user['email'], $user['password'], $user['adresse'], $user['dateOfBirth'], $user['profilPicture'], date('Y-m-d h:i:s'));
         }
     }
 
@@ -45,11 +44,28 @@ class UserRepository extends AbstractRepository
         try {
             $req = "SELECT * FROM utilisateur WHERE idUtilisateur=:id";
             $stmt = $this->getBdd()->prepare($req);
-            $stmt->bindValue(":id", $id, PDO::PARAM_STR);
-            $user = $stmt->execute();
+            $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $user = $stmt->fetch();
             $stmt->closeCursor();
 
             return $user;
+        } catch (Exception $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    public function getUserByEmail($email)
+    {
+        try {
+            $req = "SELECT * FROM utilisateur WHERE adresseMail=:email";
+            $stmt = $this->getBdd()->prepare($req);
+            $stmt->bindValue(":email", $email, PDO::PARAM_STR);
+            $stmt->execute();
+            $user = $stmt->fetch();
+            $stmt->closeCursor();
+            var_dump($user);
+            return new User($user["idUtilisateur"], $user["pseudo"], $user["adresseMail"], $user["password"], $user["adresse"], $user["dateOfBirth"], $user["profilPicture"], $user["dateCreationProfil"]);
         } catch (Exception $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
