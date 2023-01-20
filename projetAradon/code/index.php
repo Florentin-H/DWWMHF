@@ -1,5 +1,7 @@
 <?php
 require "src/Models/User.php";
+require "src/Utils/Env.php";
+require "src/Utils/Functions.php";
 session_start();
 
 

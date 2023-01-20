@@ -86,22 +86,34 @@ class UserRepository extends AbstractRepository
 
     public function update($user)
     {
-        $req = "
-        UPDATE nft
-        SET pseudo = :pseudo, adresseMail = :adresseMail, password = :password, adresse = :adresse, dateOfBirth = :dateOfBirth, profilPicture = :profilPicture
-        WHERE idUtilisateur = :id";
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":id", $user['idUtilisateur'], PDO::PARAM_INT);
-        $stmt->bindValue(":pseudo", $user['pseudo'], PDO::PARAM_STR);
-        $stmt->bindValue(":adresseMail", $user['email'], PDO::PARAM_STR);
-        $stmt->bindValue(":password", $user->getPassword(), PDO::PARAM_STR);
-        $stmt->bindValue(":adresse", $user['adresse'], PDO::PARAM_STR);
-        $stmt->bindValue(":dateOfBirth", $user->getDateOfBirth(), PDO::PARAM_STR);
-        $stmt->bindValue(":profilPicture", $user->getProfilPicture(), PDO::PARAM_STR);
-        $resultat = $stmt->execute();
+        try {
+            $req = "
+            UPDATE utilisateur
+            SET pseudo = :pseudo, adresseMail = :adresseMail, adresse = :adresse, dateOfBirth = :dateOfBirth, profilPicture = :profilPicture
+            WHERE idUtilisateur = :id";
+            $stmt = $this->getBdd()->prepare($req);
+            $stmt->bindValue(":id", $user['id'], PDO::PARAM_INT);
+            $stmt->bindValue(":pseudo", $user['pseudo'], PDO::PARAM_STR);
+            $stmt->bindValue(":adresseMail", $user['email'], PDO::PARAM_STR);
+            $stmt->bindValue(":adresse", $user['adresse'], PDO::PARAM_STR);
+            $stmt->bindValue(":dateOfBirth", date("Y-m-d", strtotime($user['dateOfBirth'])), PDO::PARAM_STR);
+            $stmt->bindValue(":profilPicture", $user['profilPicture'], PDO::PARAM_STR);
+            $resultat = $stmt->execute();
 
-        $stmt->closeCursor();
+            $stmt->closeCursor();
 
-        return $resultat;
+            if (!$resultat) {
+                throw new Exception('l\'utilisateur n\'est pas connecté.');
+            }
+
+            $_SESSION['currentUser']
+                ->setPseudo($user['pseudo'])
+                ->setEmail($user['email'])
+                ->setAdresse($user['adresse'])
+                ->setDateOfBirth(date("Y-m-d", strtotime($user['dateOfBirth'])))
+                ->setProfilPicture($user['profilPicture']);
+        } catch (Exception $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
     }
 }

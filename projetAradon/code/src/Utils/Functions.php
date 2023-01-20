@@ -5,6 +5,7 @@ abstract class Functions
 
     static function imageValidation($file, $pathOfNewFile, $basePath)
     {
+        $completePath = $basePath . $pathOfNewFile;
         if (!isset($file['name']) || empty($file['name']))
             throw new Exception("Vous devez indiquer une image pour le Nft");
 
@@ -16,11 +17,12 @@ abstract class Functions
             throw new Exception("Le fichier n'est pas une image");
         if ($extension !== "jpg" && $extension !== "jpeg" && $extension !== "png" && $extension !== "gif")
             throw new Exception("L'extension du fichier n'est pas reconnu");
-        if (file_exists($pathOfNewFile))
+        if (file_exists($completePath))
             throw new Exception("Le fichier existe déjà");
         if ($file['size'] > 500000)
             throw new Exception("Le fichier est trop gros");
-        if (!move_uploaded_file($file['tmp_name'], $pathOfNewFile))
+
+        if (!move_uploaded_file($file['tmp_name'], $completePath))
             throw new Exception("l'ajout de l'image n'a pas fonctionné");
     }
 

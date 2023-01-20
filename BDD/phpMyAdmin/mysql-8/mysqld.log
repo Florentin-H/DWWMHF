@@ -230,3 +230,9 @@
 2023-01-20T09:08:18.051186Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
 2023-01-20T09:08:18.051228Z 0 [System] [MY-010116] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 8176
 2023-01-20T09:08:18.131421Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-01-20T09:08:24.720267Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-01-20T09:08:27.019682Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: D:\laragon\bin\mysql\mysql-8.0.30-winx64\lib\private\.
+2023-01-20T09:08:27.515979Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-01-20T09:08:27.516729Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-01-20T09:08:28.046876Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2023-01-20T09:08:28.047028Z 0 [System] [MY-010931] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: ready for connections. Version: '8.0.30'  socket: ''  port: 3306  MySQL Community Server - GPL.

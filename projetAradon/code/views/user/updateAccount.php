@@ -3,17 +3,17 @@
 $user = $_SESSION['currentUser'];
 ?>
 
-<div class="d-flex align-items-center flex-column text-light pt-5 ">
+<div class="d-flex align-items-center flex-column text-light pt-3 ">
     <div class="avatar-container">
         <?php if (!$user->getProfilPicture()) { ?>
             <span>
                 <?= $user->getPseudo()[0] ?>
             </span>
         <?php } else { ?>
-            <img src="<?= null ?>" alt="profil picture">
+            <img src="<?= URL . Env::$AVATAR_PATH . $user->getProfilPicture() ?>" alt="profil picture">
         <?php } ?>
     </div>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="username">Pseudo</label>
             <input class="form-control" type="text" value="<?= $user->getPseudo() ?>" name="username" required id="">
@@ -33,7 +33,7 @@ $user = $_SESSION['currentUser'];
         </div>
         <div class="mb-3">
             <label for="profilPicture" class="form-label">Photo de profil</label>
-            <input class="form-control" type="file" id="image" name="profilPicture">
+            <input class="form-control" type="file" id="profilPicture" name="profilPicture">
         </div>
         <button type="submit" class="btn btn-success form-control">Modifier mon profil</button>
     </form>

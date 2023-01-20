@@ -63,6 +63,7 @@ class UserController
             }
 
             $updatedUser = array(
+                'id' => $_SESSION['currentUser']->getId(),
                 'pseudo' => $_POST['username'],
                 'email' => $_POST['email'],
                 'adresse' => $_POST['adresse'],
