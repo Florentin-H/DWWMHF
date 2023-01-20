@@ -19,4 +19,4 @@
 <?php
 $content = ob_get_clean();
 $titre = "Se connecter";
-require "views/templateDisconnected.php";
+require "views/template.php";

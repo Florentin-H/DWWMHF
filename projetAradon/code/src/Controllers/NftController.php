@@ -42,9 +42,9 @@ class NftController
         if (!$isAddable) throw new Exception("Missing some parameters", 400);
 
         $newFile = $_FILES['image'];
-        $pathOfNewFile = $this->getRandomiseImageName($newFile['name']);
+        $pathOfNewFile = Functions::getRandomiseImageName($newFile['name']);
 
-        $this->imageValidation($newFile, $pathOfNewFile);
+        Functions::imageValidation($newFile, $pathOfNewFile, ENV::$NFT_PATH);
 
         // @TODO : important, ici changer le propriétaire, mettre l'utilisateur connecté de la session. ex: $_SESSION['currentUser']
         $newNft = new Nft(null, $newFile['name'], $_POST['fileName'], null);
@@ -72,39 +72,16 @@ class NftController
         ];
     }
 
-    private function getRandomiseImageName($fileName)
-    {
-        $random = rand(0, 99999);
-        return $random . "" . $fileName;
-    }
 
-    private function imageValidation($file, $pathOfNewFile)
-    {
-        if (!isset($file['name']) || empty($file['name']))
-            throw new Exception("Vous devez indiquer une image pour le Nft");
 
-        if (!file_exists(Env::$NFT_PATH)) mkdir(Env::$NFT_PATH, 0777);
 
-        $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-
-        if (!getimagesize($file["tmp_name"]))
-            throw new Exception("Le fichier n'est pas une image");
-        if ($extension !== "jpg" && $extension !== "jpeg" && $extension !== "png" && $extension !== "gif")
-            throw new Exception("L'extension du fichier n'est pas reconnu");
-        if (file_exists($pathOfNewFile))
-            throw new Exception("Le fichier existe déjà");
-        if ($file['size'] > 500000)
-            throw new Exception("Le fichier est trop gros");
-        if (!move_uploaded_file($file['tmp_name'], $pathOfNewFile))
-            throw new Exception("l'ajout de l'image n'a pas fonctionné");
-    }
 
     public function updateForm()
     {
         $oldFileName = $this->nftRepository->getNftById($_POST['id'])->getFileName();
         $file = $_FILES['images'];
-        $nameImageToAdd = $file['size'] <= 0 ? $oldFileName : $this->getRandomiseImageName($file['name']);
-        $this->imageValidation($file, $nameImageToAdd);
+        $nameImageToAdd = $file['size'] <= 0 ? $oldFileName : Functions::getRandomiseImageName($file['name']);
+        Functions::imageValidation($file, $nameImageToAdd, ENV::$NFT_PATH);
 
         unlink(Env::$NFT_PATH . $oldFileName);
 

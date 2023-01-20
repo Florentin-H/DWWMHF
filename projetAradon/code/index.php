@@ -1,4 +1,5 @@
 <?php
+require "src/Models/User.php";
 session_start();
 
 
@@ -22,15 +23,12 @@ try {
         // echo "</pre>";
         switch ($url[0]) {
             case 'accueil':
-
                 require "views/accueil.view.php";
                 break;
             case 'profil':
-
                 $userController->profil();;
                 break;
             case "register":
-
                 $authController->register();
                 break;
             case "login":
@@ -41,6 +39,9 @@ try {
                 break;
             case "users":
                 require "views/users.php";
+                break;
+            case "account":
+                $userController->updateAccount();
                 break;
             case "nft":
                 if (empty($url[1])) {

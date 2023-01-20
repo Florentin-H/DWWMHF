@@ -23,8 +23,55 @@ class UserController
     {
         if (!$_SESSION['currentUser']) {
             header('location: ' . URL . "login");
+
             return;
         }
+
+
         require "views/user/profil.php";
+    }
+
+    public function updateAccount()
+    {
+        if (!$_SESSION['currentUser']) {
+            header('location: ' . URL . "login");
+            return;
+        }
+
+        $errors = array();
+        if (!isset($_POST) || !empty($_POST)) {
+            if (empty($_POST['username']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['username'])) {
+                $errors['username'] = "votre pseudo n'est pas valide (alphanumérique)";
+            }
+
+            if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                $errors['email'] = "votre email n'est pas valide";
+            }
+
+            if (empty($_POST['dateOfBirth']) || !strtotime($_POST['dateOfBirth'])) {
+                $errors['dateOfBirth'] = "votre date de naissance est invalide";
+            }
+            if (empty($_POST['adresse'])) {
+                $errors['adresse'] = "votre adresse est invalide";
+            }
+            $newAvatar = $_FILES['profilPicture'];
+            $newFileNameAvatar = Functions::getRandomiseImageName($newAvatar['name']);
+            Functions::imageValidation($newAvatar, $newFileNameAvatar, ENV::$AVATAR_PATH);
+            if ($_SESSION['currentUser']->getProfilPicture()) {
+
+                unlink(Env::$AVATAR_PATH . $_SESSION['currentUser']->getProfilPicture());
+            }
+
+            $updatedUser = array(
+                'pseudo' => $_POST['username'],
+                'email' => $_POST['email'],
+                'adresse' => $_POST['adresse'],
+                'dateOfBirth' => $_POST['dateOfBirth'],
+                'profilPicture' => $newFileNameAvatar
+            );
+
+            $this->userRepository->update($updatedUser);
+        }
+        require "views/user/updateAccount.php";
     }
 }

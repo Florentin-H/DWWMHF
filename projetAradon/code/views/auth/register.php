@@ -40,4 +40,4 @@
 <?php
 $content = ob_get_clean();
 $titre = "Inscription";
-require "views/templateDisconnected.php";
+require "views/template.php";

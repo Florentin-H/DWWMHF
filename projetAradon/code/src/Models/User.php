@@ -2,7 +2,7 @@
 
 class User
 {
-    private $idUtilisateur;
+    private $id;
     private $pseudo;
     private $eMail;
     private $password;
@@ -12,9 +12,9 @@ class User
     private $dateCreationProfil;
 
 
-    public function __construct($idUtilisateur, $pseudo, $eMail, $password, $adresse, $dateOfBirth, $profilPicture, $dateCreationProfil)
+    public function __construct($id, $pseudo, $eMail, $password, $adresse, $dateOfBirth, $profilPicture, $dateCreationProfil)
     {
-        $this->idUtilisateur = $idUtilisateur;
+        $this->id = $id;
         $this->pseudo = $pseudo;
         $this->eMail = $eMail;
         $this->password = $password;
@@ -26,7 +26,7 @@ class User
 
     public function getId()
     {
-        return $this->idUtilisateur;
+        return $this->id;
     }
     public function getPseudo()
     {

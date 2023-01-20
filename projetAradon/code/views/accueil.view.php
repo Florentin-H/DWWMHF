@@ -5,4 +5,4 @@
 <?php
 $content = ob_get_clean();
 $titre = "Hot collections";
-require "templateDisconnected.php";
+require "template.php";

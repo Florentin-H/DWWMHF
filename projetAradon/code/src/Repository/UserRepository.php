@@ -64,7 +64,7 @@ class UserRepository extends AbstractRepository
             $stmt->execute();
             $user = $stmt->fetch();
             $stmt->closeCursor();
-            var_dump($user);
+
             return new User($user["idUtilisateur"], $user["pseudo"], $user["adresseMail"], $user["password"], $user["adresse"], $user["dateOfBirth"], $user["profilPicture"], $user["dateCreationProfil"]);
         } catch (Exception $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
@@ -84,18 +84,18 @@ class UserRepository extends AbstractRepository
         }
     }
 
-    public function update(User $user)
+    public function update($user)
     {
         $req = "
         UPDATE nft
         SET pseudo = :pseudo, adresseMail = :adresseMail, password = :password, adresse = :adresse, dateOfBirth = :dateOfBirth, profilPicture = :profilPicture
         WHERE idUtilisateur = :id";
         $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":id", $user->getId(), PDO::PARAM_INT);
-        $stmt->bindValue(":pseudo", $user->getPseudo(), PDO::PARAM_STR);
-        $stmt->bindValue(":adresseMail", $user->getEmail(), PDO::PARAM_STR);
+        $stmt->bindValue(":id", $user['idUtilisateur'], PDO::PARAM_INT);
+        $stmt->bindValue(":pseudo", $user['pseudo'], PDO::PARAM_STR);
+        $stmt->bindValue(":adresseMail", $user['email'], PDO::PARAM_STR);
         $stmt->bindValue(":password", $user->getPassword(), PDO::PARAM_STR);
-        $stmt->bindValue(":adresse", $user->getAdresse(), PDO::PARAM_STR);
+        $stmt->bindValue(":adresse", $user['adresse'], PDO::PARAM_STR);
         $stmt->bindValue(":dateOfBirth", $user->getDateOfBirth(), PDO::PARAM_STR);
         $stmt->bindValue(":profilPicture", $user->getProfilPicture(), PDO::PARAM_STR);
         $resultat = $stmt->execute();
