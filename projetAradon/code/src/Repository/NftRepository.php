@@ -6,12 +6,12 @@ class NftRepository extends AbstractRepository
     public function addNft($nft)
     {
         $req = "
-        INSERT INTO livres (nomNft, fileName, proprietaire)
-        values (:nomNft, :fileName, :proprietaire)";
+        INSERT INTO nft (nomNft, imageNft, proprietaire)
+        values (:nom, :image, :proprietaire)";
         $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":nomNft", $nft->getName(), PDO::PARAM_STR);
-        $stmt->bindValue(":fileName", $nft->getFileName(), PDO::PARAM_STR);
-        $stmt->bindValue(":proprietaire", $nft->getOwner(), PDO::PARAM_STR);
+        $stmt->bindValue(":nom", $nft['nom'], PDO::PARAM_STR);
+        $stmt->bindValue(":imageNft", $nft['imageNft'], PDO::PARAM_STR);
+        $stmt->bindValue(":proprietaire", $nft->getproprietaire(), PDO::PARAM_STR);
         $nft = $stmt->execute();
         $stmt->closeCursor();
 
@@ -61,17 +61,17 @@ class NftRepository extends AbstractRepository
         }
     }
 
-    public function update(Nft $nft)
+    public function update($nft)
     {
         $req = "
         UPDATE nft
-        SET nomNft = :nomNft, fileName = :fileName, proprietaire = :owner
+        SET nomNft = :nomNft, imageNft = :imageNft, proprietaire = :proprietaire
         WHERE idNft = :id";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":id", $nft->getId(), PDO::PARAM_INT);
         $stmt->bindValue(":nomNft", $nft->getName(), PDO::PARAM_STR);
-        $stmt->bindValue(":fileName", $nft->getFileName(), PDO::PARAM_STR);
-        $stmt->bindValue(":owner", $nft->getOwner(), PDO::PARAM_STR);
+        $stmt->bindValue(":imageNft", $nft->getimageNft(), PDO::PARAM_STR);
+        $stmt->bindValue(":proprietaire", $nft->getproprietaire(), PDO::PARAM_STR);
         $nft = $stmt->execute();
 
         $stmt->closeCursor();

@@ -33,7 +33,7 @@ $user = $_SESSION['currentUser'];
         </div>
         <div class="mb-3">
             <label for="profilPicture" class="form-label">Photo de profil</label>
-            <input class="form-control" type="file" id="profilPicture" name="profilPicture">
+            <input class="form-control" type="file" id="profilPicture" name="profilPicture" value="<?= $user->getProfilPicture() ?>">
         </div>
         <button type="submit" class="btn btn-success form-control">Modifier mon profil</button>
     </form>

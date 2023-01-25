@@ -67,6 +67,9 @@ class AuthController
                 if (empty($_POST['adresse'])) {
                     $errors['adresse'] = "votre adresse est invalide";
                 }
+                $newAvatar = $_FILES['profilPicture'];
+                $newFileNameAvatar = Functions::getRandomiseImageName($newAvatar['name']);
+                Functions::imageValidation($newAvatar, $newFileNameAvatar, ENV::$AVATAR_PATH);
 
                 $newUser = array(
                     'pseudo' => $_POST['username'],
@@ -74,7 +77,7 @@ class AuthController
                     'password' => $_POST['password'],
                     'adresse' => $_POST['adresse'],
                     'dateOfBirth' => $_POST['dateOfBirth'],
-                    'profilPicture' => null
+                    'profilPicture' => $newFileNameAvatar
                 );
 
                 $this->userRepository->addUser($newUser);
@@ -86,6 +89,6 @@ class AuthController
             require "views/auth/register.php";
             return;
         }
-        header('location: ' . URL . "accueil");
+        
     }
 }

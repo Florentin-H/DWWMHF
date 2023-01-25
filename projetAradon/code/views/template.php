@@ -15,7 +15,7 @@
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid  ">
             <img src="public/images/logo/logoNftHaven.png" alt="">
-            <a class="navbar-brand" href="index.php">NFT HAVEN</a>
+            <a class="navbar-brand" href="<?= URL ?>accueil">NFT HAVEN</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,7 +33,7 @@
                             Explore
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">-Utilisateurs</a></li>
+                            <li><a class="dropdown-item" href="<?= URL ?>users">-Utilisateurs</a></li>
                             <li><a class="dropdown-item" href="#">-Collections</a></li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
@@ -59,7 +59,7 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="<?= URL ?>profil">-Mon profil</a></li>
                                 <li><a class="dropdown-item" href="<?= URL ?>account">-Modifier mon compte</a></li>
-                                <li><a class="dropdown-item" href="#">-Mes Collections</a></li>
+                                <li><a class="dropdown-item" href="<?= URL ?>nft">-Mes Collections</a></li>
                             </ul>
                         <li class="nav-item mb-4  text-end">
                             <a class="nav-link btn btn-warning p-2" href="<?= URL ?>logout" tabindex="-1" aria-disabled="true">Déconnexion</a>
@@ -84,12 +84,6 @@
         <?= $content ?>
 
     </div>
-
-
-
-
-
-
 
     <footer>
         <div class="container d-flex justify-content-between">

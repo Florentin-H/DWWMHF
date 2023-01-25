@@ -14,9 +14,14 @@ class UserController
 
     public function displayUsers()
     {
+        if (!$_SESSION['currentUser']) {
+        header('location: ' . URL . "login");
+
+        return;
+    }
         $users = $this->userRepository->getUsers();
 
-        require "views/utilisateur.view.php";
+        require "views/user/users.php";
     }
 
     public function profil()

@@ -33,21 +33,25 @@ class NftController
 
     public function add()
     {
+        var_dump($_POST);
         require "views/nft/add.php";
     }
 
     public function submitForm()
     {
-        $isAddable = !isset($_POST['name']) || empty($_POST['name']) && !isset($_POST['fileName']) || empty($_POST['fileName']) && !isset($_POST['proprietaire']) || empty($_POST['proprietaire']);
+        $isAddable = !isset($_POST['nom']) || empty($_POST['nom']) && !isset($_POST['imageNft']) || empty($_POST['imageNft']);
         if (!$isAddable) throw new Exception("Missing some parameters", 400);
 
-        $newFile = $_FILES['image'];
-        $pathOfNewFile = Functions::getRandomiseImageName($newFile['name']);
+        $newNft = $_FILES['image'];
+        $pathOfNewNft = Functions::getRandomiseImageName($newNft['nom']);
 
-        Functions::imageValidation($newFile, $pathOfNewFile, ENV::$NFT_PATH);
+        Functions::imageValidation($newNft, $pathOfNewNft, ENV::$NFT_PATH);
 
-        // @TODO : important, ici changer le propriétaire, mettre l'utilisateur connecté de la session. ex: $_SESSION['currentUser']
-        $newNft = new Nft(null, $newFile['name'], $_POST['fileName'], null);
+        $newNft = array(
+            'nom' => $_POST['nom'],
+            'imageNft' => $_POST['imageNft'],
+            
+        );
 
         $this->nftRepository->addNft($newNft);
 

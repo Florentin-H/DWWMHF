@@ -1,7 +1,7 @@
 <?php ob_start() ?>
 
 <div class="d-flex justify-content-center text-light pt-5 ">
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="username">Pseudo</label>
             <input class="form-control" type="text" name="username" required id="">

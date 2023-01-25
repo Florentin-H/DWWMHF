@@ -40,7 +40,7 @@ try {
                 $authController->logout();
                 break;
             case "users":
-                require "views/users.php";
+                $userController->displayUsers();
                 break;
             case "account":
                 $userController->updateAccount();
@@ -48,19 +48,18 @@ try {
             case "nft":
                 if (empty($url[1])) {
                     $nftController->list();
-                } else if ($url[1] === "l") {
+                } else if ($url[1] === "read") {
                     $nftController->item((int)$url[2]);
-                } else if ($url[1] === "a") {
+                } else if ($url[1] === "add") {
                     $nftController->add();
                 } else if ($url[1] === "edit") {
                     $nftController->edit((int)$url[2]);
-                } else if ($url[1] === "s") {
+                } else if ($url[1] === "delete") {
                     $nftController->delete((int)$url[2]);
                 } else {
                     throw new Exception("La page n'existe pas");
                 }
                 break;
-
             default:
                 throw new Exception("La page n'existe pas");
         }
