@@ -1,0 +1,45 @@
+1) SELECT nomEtudiant , prenomEtudiant 
+ FROM etudiants 
+ WHERE dateNaissanceEtudiant < (SELECT dateNaissanceEtudiant 
+ FROM etudiants WHERE nomEtudiant = 'LECLERCQ' AND prenomEtudiant = 'JULES'); 
+
+2) SELECT e.nomEtudiant, n.note
+FROM etudiants e
+INNER JOIN avoir_note n ON n.idEtudiant = e.idEtudiant
+WHERE n.idEpreuve = 4
+AND n.note > (SELECT AVG(note) FROM avoir_note WHERE idEpreuve = 4)
+
+3)SELECT e.nomEtudiant, e.prenomEtudiant, n.note
+FROM etudiants e
+INNER JOIN avoir_note n ON n.idEtudiant = e.idEtudiant
+WHERE n.note >= 12
+
+4)SELECT e.nomEtudiant, n.note
+FROM etudiants e
+INNER JOIN avoir_note n ON n.idEtudiant = e.idEtudiant
+WHERE n.idEpreuve = 4
+AND n.note > (SELECT note FROM avoir_note WHERE idEpreuve = 4 AND idEtudiant = (SELECT idEtudiant FROM etudiants WHERE nomEtudiant = "DUPONT" AND prenomEtudiant = "LUC"))
+
+
+5) SELECT e.nomEtudiant, e.prenomEtudiant, n.note
+FROM avoir_note n
+INNER JOIN etudiants e 
+on (e.idEtudiant = n.idEtudiant AND n.note 
+IN (SELECT note FROM avoir_note where idEtudiant = 
+(SELECT idEtudiant from etudiants where prenomEtudiant = 'LUC' and nomEtudiant = 'DUPONT')))
+
+
+6)ALTER TABLE ETUDIANTS ADD COLUMN HOBBY VARCHAR(20) DEFAULT 'SPORT';
+
+7) ALTER TABLE ETUDIANTS ADD COLUMN NEWCOL INTEGER;
+ALTER TABLE ETUDIANTS DROP COLUMN NEWCOL;
+
+8)UPDATE avoir_note SET note = note - 3 
+WHERE idEtudiant = (SELECT idEtudiant FROM etudiants where nomEtudiant = 'marke')
+AND idEpreuve IN (SELECT idEpreuve from epreuves WHERE idMatiere = (SELECT idMatiere FROM matieres where nomMatiere = 'BD'))
+
+9)INSERT INTO avoir_note (idEtudiant, idEpreuve, note)
+SELECT (SELECT idEtudiant FROM etudiants where nomEtudiant = 'dewa'), 4, (avg(note)*0.9)
+FROM avoir_note
+WHERE idEpreuve = 4;
+
