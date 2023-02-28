@@ -1,0 +1,30 @@
+# Modèle créé le : Mon Jan 16 14:57:06 CET 2023 
+
+Utilisateur (<u>idUtilisateur</u>,
+ pseudo,
+ adresseMail,
+ password,
+ adresse,
+ dateOfBirth,
+ profilPicture,
+ dateCreationProfil) 
+
+Collection (<u>idCollection</u>,
+ imageCollection,
+ titreCollection) 
+
+Nft (<u>idNft</u>,
+ nomNft,
+ imagesNft,
+ background,
+ hat,
+ accessoireMain,
+ pull,
+ collier,
+ accessoireDos,
+ #idUtilisateur,
+ #idCollection) 
+
+creer (<u>idUtilisateur</u>,
+ <u>idCollection</u>) 
+
