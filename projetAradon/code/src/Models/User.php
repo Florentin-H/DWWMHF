@@ -4,24 +4,24 @@ class User
 {
     private $id;
     private $pseudo;
-    private $eMail;
+    private $email;
     private $password;
-    private $adresse;
+    private $address;
     private $dateOfBirth;
     private $profilPicture;
-    private $dateCreationProfil;
+    private $dateProfilCreated;
 
 
-    public function __construct($id, $pseudo, $eMail, $password, $adresse, $dateOfBirth, $profilPicture, $dateCreationProfil)
+    public function __construct($id, $pseudo, $email, $password, $address, $dateOfBirth, $profilPicture, $dateProfilCreated)
     {
         $this->id = $id;
         $this->pseudo = $pseudo;
-        $this->eMail = $eMail;
+        $this->email = $email;
         $this->password = $password;
-        $this->adresse = $adresse;
+        $this->address = $address;
         $this->dateOfBirth = $dateOfBirth;
         $this->profilPicture = $profilPicture;
-        $this->dateCreationProfil = $dateCreationProfil;
+        $this->dateProfilCreated = $dateProfilCreated;
     }
 
     public function getId()
@@ -32,17 +32,17 @@ class User
     {
         return $this->pseudo;
     }
-    public function getEMail()
+    public function getEmail()
     {
-        return $this->eMail;
+        return $this->email;
     }
     public function getPassword()
     {
         return $this->password;
     }
-    public function getAdresse()
+    public function getAddress()
     {
-        return $this->adresse;
+        return $this->address;
     }
     public function getDateOfBirth()
     {
@@ -52,9 +52,9 @@ class User
     {
         return $this->profilPicture;
     }
-    public function getDateCreationProfil()
+    public function getDateProfilCreated()
     {
-        return $this->dateCreationProfil;
+        return $this->dateProfilCreated;
     }
 
     public function setPseudo($pseudo)
@@ -62,9 +62,9 @@ class User
         $this->pseudo = $pseudo;
         return $this;
     }
-    public function setEMail($eMail)
+    public function setEmail($email)
     {
-        $this->eMail = $eMail;
+        $this->email = $email;
         return $this;
     }
     public function setPassword($password)
@@ -72,9 +72,9 @@ class User
         $this->password = $password;
         return $this;
     }
-    public function setAdresse($adresse)
+    public function setAddress($address)
     {
-        $this->adresse = $adresse;
+        $this->address = $address;
         return $this;
     }
     public function setDateOfBirth($dateOfBirth)
@@ -87,9 +87,9 @@ class User
         $this->profilPicture = $profilPicture;
         return $this;
     }
-    public function setDateCreationProfil($dateCreationProfil)
+    public function setDateProfilCreated($dateProfilCreated)
     {
-        $this->dateCreationProfil = $dateCreationProfil;
+        $this->dateProfilCreated = $dateProfilCreated;
         return $this;
     }
 }

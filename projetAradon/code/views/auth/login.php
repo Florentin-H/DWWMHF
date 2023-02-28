@@ -4,12 +4,12 @@
     <form method="POST">
         <div class="form-group">
             <label for="">Email</label>
-            <input class="form-control" type="text" name="email" required id="">
+            <input class="form-control" type="text" name="email" required >
         </div>
 
         <div class="form-group">
             <label for="">Mot de passe</label>
-            <input class="form-control" type="password" name="password" required id="">
+            <input class="form-control" type="password" name="password" required >
         </div>
 
         <button type="submit" class="btn btn-success form-control">Se connecter</button>

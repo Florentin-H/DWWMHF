@@ -6,7 +6,7 @@ abstract class AbstractRepository
 
     private static function connection()
     {
-        self::$pdo = new PDO("mysql:host=localhost;dbname=nfthaven;charset=utf8", 'root', '');
+        self::$pdo = new PDO("mysql:host=localhost;dbname=nfthaven2;charset=utf8", 'root', '');
         self::$pdo->setAttribute(PDO::ATTR_ERRMODE, pdo::ERRMODE_WARNING);
     }
 

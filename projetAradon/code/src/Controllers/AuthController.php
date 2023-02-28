@@ -41,17 +41,23 @@ class AuthController
     {
         session_destroy();
         header('location: ' . URL . "accueil");
+        $_SESSION['alert'] = [
+            "type" => "success",
+            "msg" => "Vous avez été déconnecté avec succès!"
+        ];
     }
 
     public function register()
     {
+        var_dump(!isset($_SESSION['currentUser']));
         if (!isset($_SESSION['currentUser'])) {
             $errors = array();
+            
             if (!isset($_POST) || !empty($_POST)) {
-                if (empty($_POST['username']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['username'])) {
-                    $errors['username'] = "votre pseudo n'est pas valide (alphanumérique)";
+                if (empty($_POST['pseudo']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['pseudo'])) {
+                    $errors['pseudo'] = "votre pseudo n'est pas valide (alphanumérique)";
                 }
-
+                
                 if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                     $errors['email'] = "votre email n'est pas valide";
                 }
@@ -64,25 +70,27 @@ class AuthController
                 if (empty($_POST['dateOfBirth']) || !strtotime($_POST['dateOfBirth'])) {
                     $errors['dateOfBirth'] = "votre date de naissance est invalide";
                 }
-                if (empty($_POST['adresse'])) {
-                    $errors['adresse'] = "votre adresse est invalide";
+                if (empty($_POST['address'])) {
+                    $errors['address'] = "votre adresse est invalide";
                 }
+                var_dump($errors);
                 $newAvatar = $_FILES['profilPicture'];
                 $newFileNameAvatar = Functions::getRandomiseImageName($newAvatar['name']);
                 Functions::imageValidation($newAvatar, $newFileNameAvatar, ENV::$AVATAR_PATH);
 
                 $newUser = array(
-                    'pseudo' => $_POST['username'],
+                    'pseudo' => $_POST['pseudo'],
                     'email' => $_POST['email'],
                     'password' => $_POST['password'],
-                    'adresse' => $_POST['adresse'],
+                    'address' => $_POST['address'],
                     'dateOfBirth' => $_POST['dateOfBirth'],
                     'profilPicture' => $newFileNameAvatar
                 );
 
                 $this->userRepository->addUser($newUser);
+                var_dump($newUser);
 
-                header('location: ' . URL . "login");
+                // header('location: ' . URL . "login");
             }
 
 

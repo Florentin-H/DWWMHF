@@ -21,7 +21,7 @@
 </div>
     <div class="container d-flex justify-content-center mb-4">
         <div class="text-white flex-column">
-            Tu nous as rejoins le : <?= $_SESSION['currentUser']->getDateCreationProfil(); ?>
+            Tu nous as rejoins le : <?= $_SESSION['currentUser']->getDateProfilCreated(); ?>
         </div>     
     </div>
 <div class="pt-5">

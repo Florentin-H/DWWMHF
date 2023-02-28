@@ -20,7 +20,7 @@ class NftController
 
     public function item($id)
     {
-        $nft = $this->nftRepository->getnftById($id);
+        $nft = $this->nftRepository->getNftById($id);
         require "views/nft/item.php";
     }
 
@@ -33,34 +33,29 @@ class NftController
 
     public function add()
     {
-        var_dump($_POST);
+        if (!isset($_POST) || !empty($_POST)) { 
+            // quand je submit
+            var_dump($_FILES);
+            $newNft = $_FILES['imagePath'];
+            $newNameNft = Functions::getRandomiseImageName($newNft['name']);
+            Functions::imageValidation($newNft, $newNameNft, ENV::$NFT_PATH);
+    
+            $createdNft = array(
+                'name' => $_POST['name'],
+                'imagePath' => $_POST['imagePath'],
+                'userId' => $_SESSION['currentUser']->getUserId()
+            );
+
+            $this->nftRepository->add($createdNft);
+
+            header('location: ' . URL . "nft");
+
+            $_SESSION['alert'] = [
+                "type" => "success",
+                "msg" => "Ajout réalisé"
+            ];
+        }
         require "views/nft/add.php";
-    }
-
-    public function submitForm()
-    {
-        $isAddable = !isset($_POST['nom']) || empty($_POST['nom']) && !isset($_POST['imageNft']) || empty($_POST['imageNft']);
-        if (!$isAddable) throw new Exception("Missing some parameters", 400);
-
-        $newNft = $_FILES['image'];
-        $pathOfNewNft = Functions::getRandomiseImageName($newNft['nom']);
-
-        Functions::imageValidation($newNft, $pathOfNewNft, ENV::$NFT_PATH);
-
-        $newNft = array(
-            'nom' => $_POST['nom'],
-            'imageNft' => $_POST['imageNft'],
-            
-        );
-
-        $this->nftRepository->addNft($newNft);
-
-        header('location: ' . URL . "nft");
-
-        $_SESSION['alert'] = [
-            "type" => "success",
-            "msg" => "Ajout réalisé"
-        ];
     }
 
     public function delete($id)
@@ -72,7 +67,7 @@ class NftController
 
         $_SESSION['alert'] = [
             "type" => "success",
-            "msg" => "Suppression réalisé"
+            "msg" => "Suppression réalisée avec succès"
         ];
     }
 
@@ -93,10 +88,10 @@ class NftController
         $newNft = new Nft(null, $nameImageToAdd, $_POST['fileName'], null);
         $this->nftRepository->update($newNft);
 
-        header('location: ' . URL . "livres");
+        header('location: ' . URL . "nft");
         $_SESSION['alert'] = [
             "type" => "success",
-            "msg" => "Modification réalisé"
+            "msg" => "Modification réalisée"
         ];
     }
 }

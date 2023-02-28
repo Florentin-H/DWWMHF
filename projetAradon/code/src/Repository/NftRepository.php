@@ -3,15 +3,15 @@ require_once "src/Repository/AbstractRepository.php";
 require_once "src/Models/Nft.php";
 class NftRepository extends AbstractRepository
 {
-    public function addNft($nft)
+    public function add($nft)
     {
         $req = "
-        INSERT INTO nft (nomNft, imageNft, proprietaire)
-        values (:nom, :image, :proprietaire)";
+        INSERT INTO nft (name, imagePath, userId)
+        values (:name, :imagePath, :userId)";
         $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":nom", $nft['nom'], PDO::PARAM_STR);
-        $stmt->bindValue(":imageNft", $nft['imageNft'], PDO::PARAM_STR);
-        $stmt->bindValue(":proprietaire", $nft->getproprietaire(), PDO::PARAM_STR);
+        $stmt->bindValue(":name", $nft['name'], PDO::PARAM_STR);
+        $stmt->bindValue(":imagePath", $nft['imagePath'], PDO::PARAM_STR);
+        $stmt->bindValue(":userId", $nft['userId'], PDO::PARAM_STR);
         $nft = $stmt->execute();
         $stmt->closeCursor();
 
@@ -36,7 +36,7 @@ class NftRepository extends AbstractRepository
     public function getNftById($id)
     {
         try {
-            $req = "SELECT * FROM nft WHERE idNft=:id";
+            $req = "SELECT * FROM nft WHERE id=:id";
             $stmt = $this->getBdd()->prepare($req);
             $stmt->bindValue(":id", $id, PDO::PARAM_STR);
             $nft = $stmt->execute();
@@ -51,7 +51,7 @@ class NftRepository extends AbstractRepository
     public function delete($id)
     {
         try {
-            $req = "DELETE FROM nft WHERE idNft = :id";
+            $req = "DELETE FROM nft WHERE id = :id";
             $stmt = $this->getBdd()->prepare($req);
             $stmt->bindValue(":id", $id, PDO::PARAM_INT);
             $resultat = $stmt->execute();
@@ -65,13 +65,13 @@ class NftRepository extends AbstractRepository
     {
         $req = "
         UPDATE nft
-        SET nomNft = :nomNft, imageNft = :imageNft, proprietaire = :proprietaire
+        SET name = :name, imagePath = :imagePath, userId = :userId
         WHERE idNft = :id";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":id", $nft->getId(), PDO::PARAM_INT);
-        $stmt->bindValue(":nomNft", $nft->getName(), PDO::PARAM_STR);
-        $stmt->bindValue(":imageNft", $nft->getimageNft(), PDO::PARAM_STR);
-        $stmt->bindValue(":proprietaire", $nft->getproprietaire(), PDO::PARAM_STR);
+        $stmt->bindValue(":name", $nft->getName(), PDO::PARAM_STR);
+        $stmt->bindValue(":imagePath", $nft->getimagePath(), PDO::PARAM_STR);
+        $stmt->bindValue(":userId", $nft->getuserId(), PDO::PARAM_STR);
         $nft = $stmt->execute();
 
         $stmt->closeCursor();

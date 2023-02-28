@@ -3,51 +3,45 @@
 class Nft
 {
     private $id;
-    private $nom;
-    private $proprietaire;
-    private $imageNft;
+    private $name;
+    private $imagePath;
+    private $userId;
 
-
-
-    public function __construct($id, $nom, $proprietaire, $imageNft)
-    {
+    public function __construct($id, $name, $imagePath, $userId) {
         $this->id = $id;
-        $this->nom = $nom;
-        $this->proprietaire = $proprietaire;
-        $this->imageNft = $imageNft;
+        $this->name = $name;
+        $this->imagePath = $imagePath;
+        $this->userId = $userId;
     }
 
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
-    public function getNom()
-    {
-        return $this->nom;
-    }
-    public function getProprietaire()
-    {
-        return $this->proprietaire;
-    }
-    public function getImageNft()
-    {
-        return $this->imageNft;
+
+    public function getName() {
+        return $this->name;
     }
 
+    public function getImagePath() {
+        return $this->imagePath;
+    }
 
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
+    public function getUserId() {
+        return $this->userId;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
         return $this;
     }
-    public function setProprietaire($proprietaire)
-    {
-        $this->proprietaire = $proprietaire;
+
+    public function setImagePath($imagePath) {
+        $this->imagePath = $imagePath;
         return $this;
     }
-    public function setImageNft($imageNft)
-    {
-        $this->imageNft = $imageNft;
+
+    public function setUserId($userId) {
+        $this->$userId = $userId;
         return $this;
     }
 }
