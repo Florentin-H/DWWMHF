@@ -1,13 +1,20 @@
 <?php
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'todolist');
+// Configuration de la connexion à la base de données
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "todolist";
 
-$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-//var_dump($link);die;
-
-if ($link === false) {
-    die("erreur: connexion ko" . mysqli_connect_error());
+try {
+    // Création de l'objet PDO
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // Configuration des options PDO
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Erreur de connexion à la base de données : " . $e->getMessage();
+    die();
 }
+?>
+
+
+

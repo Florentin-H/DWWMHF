@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Document</title>
 </head>
 
@@ -14,7 +14,7 @@
 
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <img src="/public/images/logo/logoNftHaven.png" alt="">
+            <img src="public/images/logo/logoNftHaven.png" alt="">
             <a class="navbar-brand" href="<?= URL ?>accueil">NFT HAVEN</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,7 @@
                     <?php } else {
                     ?>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                            <a class="nav-link dropdown-toggle text-light me-2 mt-2" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                                 <?= $_SESSION['currentUser']->getPseudo() ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

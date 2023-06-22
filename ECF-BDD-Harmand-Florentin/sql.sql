@@ -1,6 +1,7 @@
 # script cree le : Sat Feb 04 14:29:29 CET 2023 -   syntaxe MySQL ;
 
-# use  ecf-bdd-harmand-florentin ;
+USE `ecf-bdd-harmand-florentin`;
+
 
 DROP TABLE IF EXISTS etudiants ;
 CREATE TABLE etudiants (idEtudiant int AUTO_INCREMENT NOT NULL,
